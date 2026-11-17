@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>César Tinedo | Next-Gen Software Developer, UX/UI & AI Engineer</title>
-  <meta name="description" content="Portafolio de César Gian Pier Tinedo Jiménez. Ingeniería de Sistemas, Diseño UX/UI, Agentes de IA, RAG y Chatbots.">
+  <title>César Tinedo | Next-Gen Software Architect, UX/UI & AI Systems Engineer</title>
+  <meta name="description" content="Portafolio de César Gian Pier Tinedo Jiménez. Ingeniería de Sistemas (UCV), Arquitectura de Software, UX/UI de Alta Gama, Agentes de IA, RAG y Telemetría Urbana.">
   <link rel="icon" type="image/png" href="https://github.com/kira168.png">
 
-  <!-- Google Fonts: Space Grotesk, Outfit, Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts: Space Grotesk, Outfit, JetBrains Mono & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,31 +23,42 @@
             heading: ['Outfit', 'sans-serif'],
             cyber: ['"Space Grotesk"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           colors: {
             cyber: {
-              bg: '#05070d',
-              surface: '#0a0e17',
-              border: '#1b2234',
-              neonCyan: '#00f0ff',
-              neonPurple: '#a855f7',
-              neonPink: '#ff007f',
-              neonGreen: '#00ff66',
+              black: '#020408',
+              card: '#080d1a',
+              cardBorder: '#162038',
+              cyan: '#00f0ff',
+              purple: '#a855f7',
+              pink: '#ff007f',
+              green: '#00ff66',
+              amber: '#f59e0b',
             }
           },
           animation: {
-            'glow-pulse': 'glowPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'radar-spin': 'spin 8s linear infinite',
-            'float': 'float 6s ease-in-out infinite',
+            'glow-pulse': 'glowPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 5s ease-in-out infinite',
+            'shimmer': 'shimmer 3s linear infinite',
+            'laser-sweep': 'laserSweep 6s ease-in-out infinite',
           },
           keyframes: {
             glowPulse: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.9', transform: 'scale(1.05)' },
+              '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.06)' },
             },
             float: {
               '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+            laserSweep: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100vh)' },
             }
           }
         }
@@ -59,1081 +70,1415 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Futuristic Styles */
-    body {
-      background-color: #030712;
-      color: #f1f5f9;
-      overflow-x: hidden;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* Grid overlay background */
-    .cyber-grid {
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* Neon Gradient Text */
-    .neon-text-gradient {
-      background: linear-gradient(135deg, #ffffff 10%, #00f0ff 45%, #a855f7 85%, #ff007f 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .neon-border-cyan {
-      box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.35);
-    }
-    
-    .neon-border-purple {
-      box-shadow: 0 0 25px -4px rgba(168, 85, 247, 0.35);
-    }
-
-    /* Mouse Spotlight effect */
-    .spotlight-card {
-      position: relative;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 240, 255, 0.08), transparent 40%),
-                  rgba(10, 14, 23, 0.85);
-      backdrop-filter: blur(20px);
-    }
-
-    .spotlight-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 240, 255, 0.5), rgba(168, 85, 247, 0.2), transparent 60%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    /* Scanline effect */
-    .scanlines {
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0) 50%,
-        rgba(0, 0, 0, 0.2) 50%,
-        rgba(0, 0, 0, 0.2)
-      );
-      background-size: 100% 4px;
-    }
-
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 7px;
     }
     ::-webkit-scrollbar-track {
-      background: #030712;
+      background: #020408;
     }
     ::-webkit-scrollbar-thumb {
-      background: #1e293b;
+      background: #1b2640;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #00f0ff;
     }
 
-    /* Glitch Animation */
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #ff007f, -2px -2px #00f0ff; }
-      25% { text-shadow: -2px 2px #ff007f, 2px -2px #00f0ff; }
-      50% { text-shadow: 2px -2px #ff007f, -2px 2px #00f0ff; }
-      75% { text-shadow: -2px -2px #ff007f, 2px 2px #00f0ff; }
-      100% { text-shadow: 2px 2px #ff007f, -2px -2px #00f0ff; }
+    /* Cyber Glows & Borders */
+    .neon-text-cyan {
+      text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.2);
     }
-    .hover-glitch:hover {
-      animation: glitch 0.25s infinite;
+    .neon-text-purple {
+      text-shadow: 0 0 15px rgba(168, 85, 247, 0.6), 0 0 30px rgba(168, 85, 247, 0.2);
+    }
+    .neon-border-cyan {
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
+    }
+    .neon-border-purple {
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.1);
+    }
+
+    /* Holographic gradient text */
+    .holo-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #00f0ff 40%, #c084fc 75%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Cyber Laser Line */
+    .laser-line {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.4) 50%, transparent 100%);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+      pointer-events: none;
+      z-index: 1;
+      animation: laserSweep 10s linear infinite;
+    }
+
+    /* 3D Card Perspective */
+    .card-3d-wrap {
+      perspective: 1200px;
+      transform-style: preserve-3d;
+    }
+    .card-3d {
+      transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform;
+    }
+
+    /* Cursor Spotlight */
+    .spotlight-overlay {
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 240, 255, 0.08), transparent 40%);
+    }
+
+    /* Custom Cursor (Desktop) */
+    @media (pointer: fine) {
+      .cyber-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #00f0ff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+        box-shadow: 0 0 10px #00f0ff;
+      }
+      .cyber-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid rgba(0, 240, 255, 0.5);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+      }
+      body:hover .cyber-cursor-ring {
+        opacity: 1;
+      }
     }
   </style>
 </head>
-<body class="selection:bg-cyan-500 selection:text-black relative">
 
-  <!-- Interactive 3D Canvas Background -->
-  <canvas id="neural-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-  <div class="fixed inset-0 cyber-grid pointer-events-none z-0 opacity-40"></div>
-  <div class="fixed inset-0 scanlines pointer-events-none z-0 opacity-20"></div>
+<body class="bg-cyber-black text-slate-100 font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden relative min-h-screen">
 
-  <!-- Ambient Light Orbs -->
-  <div class="fixed -top-40 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none z-0 animate-glow-pulse"></div>
-  <div class="fixed top-1/2 -right-40 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[140px] pointer-events-none z-0 animate-glow-pulse" style="animation-delay: 2s;"></div>
+  <!-- Interactive Custom Cursor (Desktop) -->
+  <div id="cursorDot" class="cyber-cursor-dot hidden md:block"></div>
+  <div id="cursorRing" class="cyber-cursor-ring hidden md:block"></div>
 
-  <!-- ================= TOP HUD NAVBAR ================= -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl bg-[#030712]/80 border-b border-cyan-500/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between">
+  <!-- Ambient Sweeping Laser Line -->
+  <div class="laser-line"></div>
+
+  <!-- Interactive Background Canvas (Constellation & Cyber Particles) -->
+  <canvas id="cyberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-50"></canvas>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="fixed top-[-10vw] left-[-10vw] w-[45vw] h-[45vw] rounded-full bg-cyan-600/15 blur-[130px] pointer-events-none z-0 animate-glow-pulse"></div>
+  <div class="fixed top-[35vh] right-[-12vw] w-[40vw] h-[40vw] rounded-full bg-purple-600/15 blur-[140px] pointer-events-none z-0 animate-glow-pulse" style="animation-delay: 2s;"></div>
+  <div class="fixed bottom-[-10vw] left-[25vw] w-[50vw] h-[50vw] rounded-full bg-emerald-600/10 blur-[150px] pointer-events-none z-0 animate-glow-pulse" style="animation-delay: 4s;"></div>
+
+  <!-- Top Floating HUD Navigation Bar -->
+  <header class="fixed top-3 left-0 right-0 z-50 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="backdrop-blur-2xl bg-[#050914]/85 border border-[#1b2742] rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
       
-      <!-- Brand & Tech Tag -->
-      <a href="#inicio" class="flex items-center gap-3.5 group">
-        <div class="relative">
-          <div class="w-11 h-11 rounded-xl overflow-hidden border border-cyan-400/50 p-0.5 bg-black/50 group-hover:border-cyan-300 transition-colors shadow-lg shadow-cyan-500/20">
-            <img src="https://github.com/kira168.png" alt="César Tinedo" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
+      <!-- Brand & Status -->
+      <div class="flex items-center gap-3">
+        <a href="#inicio" class="flex items-center gap-2.5 group" onclick="playSfx('click')">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 p-[1.5px] shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform">
+            <div class="w-full h-full bg-[#080d1a] rounded-[10px] flex items-center justify-center">
+              <span class="font-mono font-black text-cyan-400 text-sm tracking-tighter">CT</span>
+            </div>
           </div>
-          <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-black flex items-center justify-center">
-            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-          </span>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-heading font-black text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+          <div>
+            <div class="font-heading font-extrabold text-sm sm:text-base tracking-wide text-white flex items-center gap-1.5">
               CÉSAR TINEDO
-            </span>
-            <span class="hidden sm:inline-block font-mono text-[10px] px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
-              v3.0.PRO
-            </span>
+              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">v2.6</span>
+            </div>
+            <div class="text-[10px] font-mono text-zinc-400 hidden sm:flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-emerald-400 font-semibold">ONLINE</span> · <span id="limaClock">04:30:00 AM - GMT-5</span>
+            </div>
           </div>
-          <span class="text-[11px] text-zinc-400 font-mono tracking-wider">
-            [SYS.ARCHITECT // UX/UI • IA]
-          </span>
-        </div>
-      </a>
+        </a>
+      </div>
 
-      <!-- Desktop Nav with Futuristic Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-mono tracking-wide text-zinc-300">
-        <a href="#proyectos" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group">
-          <span class="text-cyan-500/70 group-hover:text-cyan-400 font-bold">&gt;</span> 01.Proyectos
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-mono tracking-wider text-zinc-300">
+        <a href="#proyectos" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group" onmouseenter="playSfx('hover')">
+          <span class="text-cyan-500/60 group-hover:text-cyan-400">//</span> 01. PROYECTOS
         </a>
-        <a href="#habilidades" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group">
-          <span class="text-cyan-500/70 group-hover:text-cyan-400 font-bold">&gt;</span> 02.Stack_Tech
+        <a href="#habilidades" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group" onmouseenter="playSfx('hover')">
+          <span class="text-cyan-500/60 group-hover:text-cyan-400">//</span> 02. ARSENAL & SKILLS
         </a>
-        <a href="#terminal-section" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group">
-          <span class="text-cyan-500/70 group-hover:text-cyan-400 font-bold">&gt;</span> 03.IA_Terminal
+        <a href="#terminal" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group" onmouseenter="playSfx('hover')">
+          <span class="text-cyan-500/60 group-hover:text-cyan-400">//</span> 03. TERMINAL INTERACTIVA
         </a>
-        <a href="#sobre-mi" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group">
-          <span class="text-cyan-500/70 group-hover:text-cyan-400 font-bold">&gt;</span> 04.Trayectoria
+        <a href="#sobre-mi" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group" onmouseenter="playSfx('hover')">
+          <span class="text-cyan-500/60 group-hover:text-cyan-400">//</span> 04. PERFIL
+        </a>
+        <a href="#contacto" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5 group" onmouseenter="playSfx('hover')">
+          <span class="text-cyan-500/60 group-hover:text-cyan-400">//</span> 05. CONTACTO
         </a>
       </nav>
 
-      <!-- Quick Action Buttons -->
-      <div class="flex items-center gap-3">
-        <!-- Status indicator -->
-        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>DISPONIBLE</span>
-        </div>
+      <!-- Right Controls: SFX Audio Toggle + Quick WhatsApp -->
+      <div class="flex items-center gap-2.5">
+        
+        <!-- Web Audio SFX Toggle Button -->
+        <button id="sfxToggleBtn" onclick="toggleAudioSfx()" class="px-2.5 py-1.5 rounded-xl bg-[#0b1326] border border-[#1d2c4e] text-zinc-300 hover:text-cyan-400 hover:border-cyan-400/50 text-[11px] font-mono flex items-center gap-1.5 transition-all shadow-sm" title="Efectos de Sonido Sintetizados">
+          <i data-lucide="volume-2" id="sfxIcon" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span id="sfxLabel" class="hidden sm:inline">SFX: ON</span>
+        </button>
 
-        <!-- WhatsApp CTA -->
-        <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20vi%20tu%20portafolio%20futurista%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad" 
-           target="_blank" 
-           class="relative group overflow-hidden px-4 sm:px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-cyan-500 hover:bg-cyan-400 text-black shadow-lg shadow-cyan-500/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
-          <i data-lucide="zap" class="w-4 h-4 fill-black"></i>
-          <span>CONTACTAR</span>
+        <!-- Fast Contact Direct Link -->
+        <a href="https://wa.me/51974274864?text=Hola%20Cesar,%20vi%20tu%20portafolio%20profesional%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto." target="_blank" onclick="playSfx('success')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-heading font-extrabold text-xs tracking-wider flex items-center gap-1.5 shadow-[0_0_20px_rgba(0,240,255,0.35)] hover:scale-105 transition-all">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-black"></i>
+          <span>WHATSAPP</span>
         </a>
       </div>
+
     </div>
   </header>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6">
+  <!-- Main Container -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-28 sm:pt-36 pb-20">
 
-    <!-- ================= HERO SECTION ================= -->
-    <section id="inicio" class="py-12 md:py-20 flex flex-col items-center text-center">
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <section id="inicio" class="flex flex-col items-center text-center py-10 sm:py-16">
       
-      <!-- Live HUD Status Chip -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/40 bg-cyan-950/40 backdrop-blur-md text-cyan-300 font-mono text-xs mb-8 neon-border-cyan animate-float">
-        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyan-400"></i>
-        <span>INGENIERÍA DE SISTEMAS // UNIVERSIDAD CÉSAR VALLEJO</span>
-        <span class="text-zinc-600">|</span>
-        <span class="text-emerald-400 font-bold">PERÚ</span>
+      <!-- Hackathon & Academic Status Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a1122]/90 border border-cyan-500/40 text-cyan-300 font-mono text-xs mb-8 shadow-[0_0_20px_rgba(0,240,255,0.2)] animate-float">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        <span>CAJATHON 2026 TOP CONTENDER</span>
+        <span class="text-zinc-500">|</span>
+        <span class="text-zinc-300">INGENIERÍA DE SISTEMAS · UCV LIMA</span>
       </div>
 
-      <!-- Main Headline with Gradient -->
-      <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-black tracking-tight max-w-5xl leading-[1.1] mb-6">
-        Arquitecto de Experiencias Digitales, 
-        <span class="neon-text-gradient block mt-1">Sistemas Web & Agentes de IA</span>
+      <!-- Giant Holographic Hero Title -->
+      <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-none mb-6">
+        <span class="block text-white">ARQUITECTURA & IA</span>
+        <span class="block holo-gradient mt-1">NEXT-GEN SYSTEMS</span>
       </h1>
 
-      <!-- Typewriter Dynamic Role Display -->
-      <div class="h-10 sm:h-12 flex items-center justify-center font-mono text-lg sm:text-2xl text-cyan-300 mb-8">
-        <span class="text-zinc-500 mr-2">&gt;</span>
-        <span id="typewriter-text" class="font-bold border-r-2 border-cyan-400 pr-1"></span>
-      </div>
-
-      <!-- High-Impact Description -->
-      <p class="text-base sm:text-lg md:text-xl text-zinc-300 max-w-3xl leading-relaxed font-sans mb-10">
-        Transformo problemas complejos en <strong class="text-white font-semibold">interfaces ultra intuitivas (UX/UI)</strong>, 
-        respaldadas por <strong class="text-cyan-400 font-semibold">arquitectura de software robusta</strong> y potenciadas con 
-        <strong class="text-purple-400 font-semibold">Inteligencia Artificial generativa, motores RAG y chatbots automatizados</strong>.
+      <!-- Dynamic Subtitle with typing cursor -->
+      <p class="max-w-3xl text-zinc-300 text-base sm:text-xl font-normal leading-relaxed mb-10">
+        Soy <strong class="text-white font-semibold">César Gian Pier Tinedo Jiménez</strong>. Desarrollo ecosistemas de software de alto impacto integrando <span class="text-cyan-400 font-medium">Agentes de IA y RAG</span>, arquitecturas backend escalables (<span class="text-purple-400 font-medium">Python/FastAPI & PHP</span>) e interfaces <span class="text-emerald-400 font-medium">UX/UI futuristas</span> con telemetría en tiempo real.
       </p>
 
-      <!-- Interactive Cyber CTA Group -->
-      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-5 w-full max-w-2xl">
-        
-        <a href="#proyectos" class="relative group px-7 py-4 rounded-xl font-mono text-sm font-bold bg-white text-black hover:bg-cyan-400 hover:text-black transition-all shadow-xl shadow-cyan-500/20 hover:scale-105 active:scale-95 flex items-center gap-2.5">
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <a href="#proyectos" onclick="playSfx('click')" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black font-heading font-extrabold text-sm tracking-wider flex items-center gap-2 shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:shadow-[0_0_45px_rgba(0,240,255,0.7)] hover:scale-105 transition-all">
           <i data-lucide="layers" class="w-4 h-4"></i>
-          <span>EXPLORAR PROYECTOS</span>
+          <span>EXPLORAR 5 PROYECTOS CLAVE</span>
         </a>
 
-        <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad" 
-           target="_blank" 
-           class="px-7 py-4 rounded-xl font-mono text-sm font-bold bg-black/60 border border-emerald-500/50 hover:border-emerald-400 text-emerald-300 hover:bg-emerald-950/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-2.5 shadow-lg shadow-emerald-500/10">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-          <span>WHATSAPP (+51 974 274 864)</span>
+        <a href="https://github.com/kira168" target="_blank" onclick="playSfx('click')" class="px-6 py-3.5 rounded-2xl bg-[#091020] border border-[#1b2b4d] hover:border-cyan-400/60 text-white font-mono text-sm flex items-center gap-2 hover:scale-105 transition-all shadow-md">
+          <i data-lucide="github" class="w-4 h-4 text-cyan-400"></i>
+          <span>GITHUB // KIRA168</span>
         </a>
 
-        <!-- Social Icons -->
-        <div class="flex items-center gap-3">
-          <a href="https://github.com/kira168" target="_blank" 
-             class="p-4 rounded-xl bg-black/60 border border-zinc-800 hover:border-cyan-400 text-zinc-300 hover:text-cyan-400 transition-all hover:scale-110" title="GitHub Profile">
-            <i data-lucide="github" class="w-5 h-5"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" 
-             class="p-4 rounded-xl bg-black/60 border border-zinc-800 hover:border-purple-400 text-zinc-300 hover:text-purple-400 transition-all hover:scale-110" title="LinkedIn Profile">
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
-          </a>
-          <a href="mailto:nuvk168@gmail.com" 
-             class="p-4 rounded-xl bg-black/60 border border-zinc-800 hover:border-pink-400 text-zinc-300 hover:text-pink-400 transition-all hover:scale-110" title="Enviar Correo">
-            <i data-lucide="mail" class="w-5 h-5"></i>
-          </a>
-        </div>
+        <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" onclick="playSfx('click')" class="px-6 py-3.5 rounded-2xl bg-[#091020] border border-[#1b2b4d] hover:border-purple-400/60 text-white font-mono text-sm flex items-center gap-2 hover:scale-105 transition-all shadow-md">
+          <i data-lucide="linkedin" class="w-4 h-4 text-purple-400"></i>
+          <span>LINKEDIN PERFIL</span>
+        </a>
       </div>
 
-      <!-- Live Telemetry / Tech Stats Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 w-full max-w-5xl">
+      <!-- Cyber Stats Matrix HUD -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
         
-        <div class="spotlight-card p-5 rounded-2xl border border-zinc-800/80 text-left">
-          <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-1">
-            <span>[SYS.PROJECTS]</span>
-            <i data-lucide="folder-check" class="w-4 h-4 text-cyan-400"></i>
+        <div class="p-5 rounded-2xl bg-[#070c18]/80 border border-[#16223b] backdrop-blur-md text-left hover:border-cyan-500/50 transition-all group">
+          <div class="flex items-center justify-between text-zinc-400 text-xs font-mono mb-2">
+            <span>PRODUCCIÓN</span>
+            <i data-lucide="server" class="w-4 h-4 text-cyan-400 group-hover:rotate-12 transition-transform"></i>
           </div>
-          <div class="text-3xl font-heading font-black text-white">+5 Desplegados</div>
-          <p class="text-xs text-zinc-400 font-mono mt-1">Sistemas en producción & prototipos</p>
+          <div class="text-3xl font-heading font-black text-white group-hover:text-cyan-400 transition-colors">5+</div>
+          <div class="text-xs text-zinc-400 font-mono mt-1">Sistemas desplegados</div>
         </div>
 
-        <div class="spotlight-card p-5 rounded-2xl border border-zinc-800/80 text-left">
-          <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-1">
-            <span>[AI.CORE]</span>
-            <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i>
+        <div class="p-5 rounded-2xl bg-[#070c18]/80 border border-[#16223b] backdrop-blur-md text-left hover:border-purple-500/50 transition-all group">
+          <div class="flex items-center justify-between text-zinc-400 text-xs font-mono mb-2">
+            <span>TELEMETRÍA C4</span>
+            <i data-lucide="radio" class="w-4 h-4 text-purple-400 group-hover:rotate-12 transition-transform"></i>
           </div>
-          <div class="text-3xl font-heading font-black text-purple-300">RAG & LLM</div>
-          <p class="text-xs text-zinc-400 font-mono mt-1">Multi-agente & recuperación semántica</p>
+          <div class="text-3xl font-heading font-black text-white group-hover:text-purple-400 transition-colors">754+</div>
+          <div class="text-xs text-zinc-400 font-mono mt-1">Cámaras y Nodos Activos</div>
         </div>
 
-        <div class="spotlight-card p-5 rounded-2xl border border-zinc-800/80 text-left">
-          <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-1">
-            <span>[UX.METRICS]</span>
-            <i data-lucide="sparkles" class="w-4 h-4 text-pink-400"></i>
+        <div class="p-5 rounded-2xl bg-[#070c18]/80 border border-[#16223b] backdrop-blur-md text-left hover:border-emerald-500/50 transition-all group">
+          <div class="flex items-center justify-between text-zinc-400 text-xs font-mono mb-2">
+            <span>ARQUITECTURA</span>
+            <i data-lucide="brain" class="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform"></i>
           </div>
-          <div class="text-3xl font-heading font-black text-white">100% User Centric</div>
-          <p class="text-xs text-zinc-400 font-mono mt-1">Figma, wireframes & prototipado ágil</p>
+          <div class="text-3xl font-heading font-black text-white group-hover:text-emerald-400 transition-colors">100%</div>
+          <div class="text-xs text-zinc-400 font-mono mt-1">RAG & Agentes Pedagógicos</div>
         </div>
 
-        <div class="spotlight-card p-5 rounded-2xl border border-zinc-800/80 text-left">
-          <div class="flex items-center justify-between text-zinc-500 font-mono text-xs mb-1">
-            <span>[CHATBOT.OPS]</span>
-            <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i>
+        <div class="p-5 rounded-2xl bg-[#070c18]/80 border border-[#16223b] backdrop-blur-md text-left hover:border-amber-500/50 transition-all group">
+          <div class="flex items-center justify-between text-zinc-400 text-xs font-mono mb-2">
+            <span>DISPONIBILIDAD</span>
+            <i data-lucide="zap" class="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform"></i>
           </div>
-          <div class="text-3xl font-heading font-black text-emerald-400">24/7 Omnicanal</div>
-          <p class="text-xs text-zinc-400 font-mono mt-1">WhatsApp Webhooks & automatización</p>
+          <div class="text-3xl font-heading font-black text-white group-hover:text-amber-400 transition-colors">&lt; 50ms</div>
+          <div class="text-xs text-zinc-400 font-mono mt-1">Latencia en Inferencia Local</div>
         </div>
 
       </div>
+
     </section>
 
-    <!-- ================= INTERACTIVE CYBER TERMINAL ================= -->
-    <section id="terminal-section" class="py-12">
-      <div class="rounded-2xl border border-cyan-500/30 bg-black/80 backdrop-blur-xl overflow-hidden shadow-2xl shadow-cyan-500/10">
-        <!-- Terminal Header -->
-        <div class="px-4 py-3 bg-zinc-950 border-b border-zinc-800/80 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-            <span class="font-mono text-xs text-zinc-400 ml-2">cesar@ai-neural-core: ~ (bash)</span>
-          </div>
-          <div class="flex items-center gap-2 font-mono text-[11px] text-zinc-500">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span>SYSTEM_ONLINE // LIMA_PE</span>
-          </div>
-        </div>
-
-        <!-- Terminal Body -->
-        <div class="p-6 font-mono text-xs sm:text-sm text-zinc-300 space-y-3 leading-relaxed">
-          <div class="text-cyan-400">
-            <span class="text-purple-400">cesar@antigravity</span>:<span class="text-blue-400">~</span>$ ./run_profile_diagnostic.sh --verbose
-          </div>
-          <div class="text-zinc-400">
-            [+] Checking Core Identity: <span class="text-white font-bold">César Gian Pier Tinedo Jiménez</span><br>
-            [+] University: <span class="text-cyan-300">Universidad César Vallejo (Ingeniería de Sistemas)</span><br>
-            [+] Target Roles: <span class="text-emerald-400">UX/UI Designer // Frontend Developer // AI Solutions Engineer</span><br>
-            [+] Specialized Systems: <span class="text-yellow-300">RAG Architecture, WhatsApp Bots, Multi-Agent Orchestrators</span><br>
-            [+] Operational Status: <span class="text-emerald-400 font-bold">READY FOR RECRUITMENT & FREELANCE</span>
-          </div>
-          
-          <!-- Interactive command pills -->
-          <div class="pt-3 flex flex-wrap gap-2 items-center">
-            <span class="text-zinc-500">Comandos rápidos:</span>
-            <button onclick="terminalEcho('ineicore')" class="px-3 py-1 rounded bg-zinc-900 border border-zinc-700 hover:border-cyan-400 text-cyan-300 text-xs font-mono transition-colors">
-              &gt; info inei34-core
-            </button>
-            <button onclick="terminalEcho('ai')" class="px-3 py-1 rounded bg-zinc-900 border border-zinc-700 hover:border-purple-400 text-purple-300 text-xs font-mono transition-colors">
-              &gt; test rag-agent
-            </button>
-            <button onclick="terminalEcho('contact')" class="px-3 py-1 rounded bg-zinc-900 border border-zinc-700 hover:border-emerald-400 text-emerald-300 text-xs font-mono transition-colors">
-              &gt; ping cesar-whatsapp
-            </button>
-          </div>
-
-          <!-- Dynamic Output Container -->
-          <div id="terminal-output" class="p-3 mt-3 rounded bg-zinc-950/80 border border-zinc-800 text-cyan-300 text-xs font-mono hidden">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROYECTOS SHOWCASE ================= -->
-    <section id="proyectos" class="py-16">
+    <!-- ========================================== -->
+    <!-- FEATURED PROJECTS SHOWCASE (5 KEY WORKS)   -->
+    <!-- ========================================== -->
+    <section id="proyectos" class="py-20">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-mono text-xs tracking-wider mb-3">
-            <i data-lucide="binary" class="w-4 h-4 text-cyan-400"></i>
-            <span>01 // PORTAFOLIO DE PRODUCCIÓN REAL</span>
+          <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs tracking-wider mb-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span>// PORTAFOLIO DE INGENIERÍA & PRODUCCIÓN</span>
           </div>
-          <h2 class="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight">
-            Proyectos de Alto Impacto
+          <h2 class="font-heading font-black text-3xl sm:text-5xl text-white">
+            PROYECTOS <span class="holo-gradient">DESTACADOS</span>
           </h2>
-          <p class="text-zinc-400 text-base mt-2 max-w-2xl">
-            Sistemas reales con arquitecturas comprobadas, interfaces de alta gama y automatizaciones con IA que resuelven problemas del mundo real.
+          <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-2xl">
+            Sistemas reales verificados y publicados en GitHub. Haz clic en <span class="text-cyan-400 font-medium">"Ver Captura HD"</span> en cualquiera de las imágenes para inspeccionar las interfaces en resolución completa.
           </p>
         </div>
 
-        <!-- Filter tabs -->
-        <div class="flex flex-wrap gap-2 text-xs font-mono" id="project-filters">
-          <button onclick="filterProjects('all')" class="filter-btn active px-4 py-2.5 rounded-xl bg-cyan-500 text-black font-bold shadow-md shadow-cyan-500/20 transition-all">TODOS</button>
-          <button onclick="filterProjects('ia')" class="filter-btn px-4 py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">IA & AGENTES</button>
-          <button onclick="filterProjects('web')" class="filter-btn px-4 py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">SISTEMAS WEB</button>
-          <button onclick="filterProjects('ux')" class="filter-btn px-4 py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 transition-all">DISEÑO UX/UI</button>
+        <div class="mt-4 md:mt-0 flex gap-2">
+          <button onclick="filterCategory('all')" class="cat-btn px-3 py-1.5 rounded-xl font-mono text-xs bg-cyan-500 text-black font-bold transition-all" data-cat="all">TODOS (5)</button>
+          <button onclick="filterCategory('ai')" class="cat-btn px-3 py-1.5 rounded-xl font-mono text-xs bg-[#091020] border border-[#1b2b4d] text-zinc-300 hover:text-cyan-400 transition-all" data-cat="ai">IA & RAG</button>
+          <button onclick="filterCategory('fullstack')" class="cat-btn px-3 py-1.5 rounded-xl font-mono text-xs bg-[#091020] border border-[#1b2b4d] text-zinc-300 hover:text-cyan-400 transition-all" data-cat="fullstack">FULL-STACK</button>
         </div>
       </div>
 
-      <!-- Grid Projects -->
+      <!-- Projects Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- PROYECTO 1: INEI 34 SMART CORE -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-cyan-400/60 hover:-translate-y-1" data-category="web ux">
-          
-          <!-- Image preview container -->
-          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
-            <img src="assets/inei34_portal.png" alt="INEI 34 Smart Core" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
+        <!-- ========================================== -->
+        <!-- PROYECTO 1: SMARTCITY C4 (TELEMETRIA URBANA) -->
+        <!-- ========================================== -->
+        <div class="project-item card-3d-wrap md:col-span-2" data-category="ai fullstack">
+          <div class="card-3d spotlight-card rounded-3xl bg-[#070c18] border border-[#182645] hover:border-emerald-400/70 overflow-hidden flex flex-col lg:flex-row group transition-all duration-500 shadow-2xl">
             
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500 text-black flex items-center gap-1 shadow-md">
-                <i data-lucide="star" class="w-3 h-3 fill-black"></i> PROYECTO INSIGNIA
-              </span>
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-zinc-300 border border-zinc-700">
-                PRODUCCIÓN
-              </span>
-            </div>
-
-            <div class="absolute bottom-4 right-4">
-              <a href="https://github.com/kira168/inei34-smart-core" target="_blank" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-cyan-400 text-white hover:text-cyan-400 transition-all flex items-center justify-center">
-                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
-                <i data-lucide="building" class="w-3.5 h-3.5"></i> Institución Educativa INEI Nº 34 Chancay
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                INEI 34 Smart Core: Portal e Intranet Institucional
-              </h3>
-              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-                Ecosistema web completo para la digitalización integral de la institución. Diseñé la experiencia de usuario (UX) centrada en 3 roles (Alumnos, Docentes, Directores), implementando trámites virtuales, registro de notas, asistencia y control escolar con interfaz intuitiva, moderna y accesible.
-              </p>
-            </div>
-
-            <div>
-              <!-- Tech stack badges -->
-              <div class="flex flex-wrap gap-2 mt-6 mb-6">
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Python / Flask</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Tailwind CSS</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-cyan-300 text-xs font-mono">Diseño UX/UI</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">SQLite & Cloudflare</span>
-              </div>
-
-              <!-- Footer link -->
-              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
-                <a href="https://github.com/kira168/inei34-smart-core" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-cyan-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
-                </a>
-                <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> ACTIVO
+            <!-- Image Container with Zoom Overlay -->
+            <div class="lg:w-7/12 relative min-h-[320px] lg:min-h-[460px] bg-black overflow-hidden cursor-pointer" onclick="openLightbox('assets/smartcity_c4_monitoreo_v2.jpg?v=20261117_luxury_1', 'SmartCity C4: Videovigilancia y Gestión Urbana Inteligente (Central de Monitoreo Puente Piedra 2026)', 'FastAPI · Python · 754 Cámaras · Mapas GeoJSON · Agente Predictivo')">
+              <img src="assets/smartcity_c4_monitoreo_v2.jpg?v=20261117_luxury_1" alt="SmartCity C4 Monitoreo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              
+              <!-- Dark gradient edge overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-transparent to-[#070c18]"></div>
+              
+              <!-- Badges -->
+              <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500 text-black flex items-center gap-1 shadow-md">
+                  <i data-lucide="shield-alert" class="w-3.5 h-3.5 fill-black"></i> SEGURIDAD URBANA C4
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40">
+                  FASTAPI & AGENTE IA
                 </span>
               </div>
+
+              <!-- Click to zoom hint -->
+              <div class="absolute bottom-4 left-4 z-10 px-3 py-1.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-2 group-hover:border-emerald-400/60 transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-emerald-400"></i>
+                <span>Clic para pantalla completa HD</span>
+              </div>
+
+              <div class="absolute top-4 right-4 z-10">
+                <a href="https://github.com/kira168/smartcity-c4-platform" target="_blank" onclick="event.stopPropagation(); playSfx('click')" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-emerald-400 text-white hover:text-emerald-400 transition-all flex items-center justify-center">
+                  <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="lg:w-5/12 p-8 sm:p-10 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 mb-2">
+                  <i data-lucide="activity" class="w-3.5 h-3.5"></i> Telemetría de Red & Reducción de Inseguridad
+                </div>
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                  SmartCity C4: Videovigilancia y Gestión Urbana Inteligente
+                </h3>
+                <p class="text-zinc-400 text-sm mt-4 leading-relaxed">
+                  Plataforma integral para el monitoreo y control de operatividad de <strong>754 cámaras de videovigilancia y nodos troncales</strong> en el distrito de Puente Piedra. Integra mapas interactivos GeoJSON con simulación de caída de enlaces, gestión de cuadrillas de respuesta rápida y un <strong>Agente de Inteligencia Artificial</strong> para predicción analítica de zonas críticas.
+                </p>
+
+                <!-- Metric pills inside card -->
+                <div class="grid grid-cols-2 gap-3 mt-6">
+                  <div class="p-3 rounded-xl bg-[#0c1426] border border-[#1b2a4c]">
+                    <div class="text-[11px] font-mono text-zinc-400">NODOS MONITOREADOS</div>
+                    <div class="text-lg font-mono font-bold text-emerald-400">691 / 691 En Línea</div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-[#0c1426] border border-[#1b2a4c]">
+                    <div class="text-[11px] font-mono text-zinc-400">LATENCIA ICMP</div>
+                    <div class="text-lg font-mono font-bold text-cyan-400">23.9 ms (Estable)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <!-- Tech tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-emerald-300 text-xs font-mono">Python / FastAPI</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Agente Predictivo IA</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">GeoJSON & Leaflet</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Telegram Bot Alerts</span>
+                </div>
+
+                <div class="pt-4 border-t border-[#16223b] flex items-center justify-between">
+                  <a href="https://github.com/kira168/smartcity-c4-platform" target="_blank" onclick="playSfx('click')" class="inline-flex items-center gap-2 text-xs font-mono font-bold text-white hover:text-emerald-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4 text-emerald-400"></i> REPOSITORIO GITHUB // SMARTCITY-C4
+                  </a>
+                  <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> ACTIVO
+                  </span>
+                </div>
+              </div>
+
             </div>
 
           </div>
         </div>
 
-        <!-- PROYECTO 2: SMART TUTOR & AGENTES IA (RAG) -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-purple-400/60 hover:-translate-y-1" data-category="ia">
-          
-          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
-            <img src="assets/smarttutor_smartteacher_split.png?v=20261117_1" alt="Smart Tutor & Smart Teacher Multi-Agent" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
+        <!-- ========================================== -->
+        <!-- PROYECTO 2: SMART TUTOR & SMART TEACHER (RAG) -->
+        <!-- ========================================== -->
+        <div class="project-item card-3d-wrap" data-category="ai">
+          <div class="card-3d spotlight-card rounded-3xl bg-[#070c18] border border-[#182645] hover:border-purple-400/70 overflow-hidden flex flex-col group transition-all duration-500 shadow-2xl h-full justify-between">
             
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-purple-600 text-white flex items-center gap-1 shadow-md">
-                <i data-lucide="bot" class="w-3 h-3"></i> AGENTES MULTI-ROL
-              </span>
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-purple-300 border border-purple-500/40">
-                SMART TUTOR & TEACHER
-              </span>
-            </div>
-          </div>
-
-          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-purple-400 mb-2">
-                <i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i> Inteligencia Artificial Aplicada a la Educación
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                Smart Tutor & Smart Teacher: Sistema Multi-Agente RAG
-              </h3>
-              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-                Plataforma de agentes autónomos con base de conocimiento vectorial indexada. El <em>Smart Tutor</em> asiste al estudiante mediante método socrático sin dar respuestas directas, mientras el <em>Smart Teacher</em> ayuda a los profesores a estructurar sesiones de clase alineadas al currículo oficial.
-              </p>
-            </div>
-
-            <div>
-              <div class="flex flex-wrap gap-2 mt-6 mb-6">
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-purple-300 text-xs font-mono">RAG Architecture</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Vector Embeddings</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Orquestador de Agentes</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Python Core</span>
-              </div>
-
-              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
-                <span class="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
-                  <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i> Orquestación Autónoma
+            <!-- Image container -->
+            <div class="relative h-64 sm:h-72 bg-black overflow-hidden cursor-pointer" onclick="openLightbox('assets/smarttutor_smartteacher_split_v2.png?v=20261117_luxury_1', 'Smart Tutor & Smart Teacher: Sistema Multi-Agente RAG Pedagógico', 'Ollama · Qwen 2.5 & Hermes 3 · Vector Embeddings · Currículo Nacional CNEB')">
+              <img src="assets/smarttutor_smartteacher_split_v2.png?v=20261117_luxury_1" alt="SmartTutor y SmartTeacher Split" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#070c18] via-transparent to-transparent"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-purple-600 text-white flex items-center gap-1 shadow-md">
+                  <i data-lucide="bot" class="w-3.5 h-3.5"></i> AGENTES MULTI-ROL
                 </span>
-                <span class="text-xs font-mono text-purple-400 font-bold">PRECISIÓN RAG</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- PROYECTO 3: PLATAFORMA WEB DE TURISMO -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-amber-400/60 hover:-translate-y-1" data-category="web ux">
-          
-          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
-            <img src="assets/turismo_oficial_inkaiko.jpg?v=20261117_1" alt="Turismo Inkaiko" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
-            
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500 text-black flex items-center gap-1 shadow-md">
-                <i data-lucide="compass" class="w-3 h-3"></i> WEB & E-COMMERCE
-              </span>
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-amber-300 border border-amber-500/40">
-                TURISMO INKAIKO
-              </span>
-            </div>
-
-            <div class="absolute bottom-4 right-4">
-              <a href="https://github.com/kira168/web-turismo" target="_blank" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-amber-400 text-white hover:text-amber-400 transition-all flex items-center justify-center">
-                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
-                <i data-lucide="globe" class="w-3.5 h-3.5"></i> Portal Web Turístico, Reservas & Chatbot
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                Plataforma Web de Turismo & Experiencias
-              </h3>
-              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-                Aplicación web integral para comercialización y reserva de tours y destinos nacionales. Cuenta con módulo cliente con pasarela de pagos Stripe, chatbot de asistencia, panel administrativo con analítica de reservas y diseño adaptado a móviles.
-              </p>
-            </div>
-
-            <div>
-              <div class="flex flex-wrap gap-2 mt-6 mb-6">
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-400 text-xs font-mono">PHP & MySQL</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Stripe Webhooks</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Chatbot Asistente</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Diseño UX/UI</span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-purple-300 border border-purple-500/40">
+                  RAG CNEB & OLLAMA
+                </span>
               </div>
 
-              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-                <a href="https://github.com/kira168/web-turismo" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-amber-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+              <!-- Zoom hint -->
+              <div class="absolute bottom-4 left-4 z-10 px-3 py-1.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-2 group-hover:border-purple-400/60 transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-purple-400"></i>
+                <span>Ver Dual Interface HD</span>
+              </div>
+
+              <div class="absolute top-4 right-4 z-10">
+                <a href="https://github.com/kira168/inei34-smart-core" target="_blank" onclick="event.stopPropagation(); playSfx('click')" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-purple-400 text-white hover:text-purple-400 transition-all flex items-center justify-center">
+                  <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                 </a>
-                <span class="text-amber-400 font-bold">PORTAL COMPLETO</span>
               </div>
             </div>
+
+            <!-- Content -->
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-xs font-mono text-purple-400 mb-2">
+                  <i data-lucide="brain-circuit" class="w-3.5 h-3.5"></i> Inteligencia Artificial Aplicada a la Educación
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                  Smart Tutor & Smart Teacher: Sistema Multi-Agente RAG
+                </h3>
+                <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                  Arquitectura multi-agente asistida por LLMs locales (Qwen 2.5 y Hermes 3). <em>Smart Tutor</em> orienta a estudiantes en talleres técnicos (Electricidad, Mecánica, etc.) mediante método socrático con pistas progresivas, mientras <em>Smart Teacher</em> estructura rúbricas, sesiones pedagógicas y situaciones significativas alineadas al CNEB.
+                </p>
+              </div>
+
+              <div class="mt-6">
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-purple-300 text-xs font-mono">RAG Vectorial</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Ollama Local</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Qwen 2.5 / Hermes 3</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Python Core</span>
+                </div>
+
+                <div class="pt-4 border-t border-[#16223b] flex items-center justify-between">
+                  <a href="https://github.com/kira168/inei34-smart-core" target="_blank" onclick="playSfx('click')" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-purple-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                  </a>
+                  <span class="text-xs font-mono text-purple-400 font-bold">PRECISIÓN RAG</span>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
-        <!-- PROYECTO 4: SISTEMA DE GESTIÓN DE INCIDENCIAS IT -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-blue-400/60 hover:-translate-y-1" data-category="web ux">
-          
-          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
-            <img src="assets/incidencias_puentepiedra.png?v=20261117_1" alt="Gestión de Incidencias" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
+        <!-- ========================================== -->
+        <!-- PROYECTO 3: INEI 34 SMART CORE             -->
+        <!-- ========================================== -->
+        <div class="project-item card-3d-wrap" data-category="fullstack">
+          <div class="card-3d spotlight-card rounded-3xl bg-[#070c18] border border-[#182645] hover:border-cyan-400/70 overflow-hidden flex flex-col group transition-all duration-500 shadow-2xl h-full justify-between">
             
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-500 text-white flex items-center gap-1 shadow-md">
-                <i data-lucide="shield" class="w-3 h-3"></i> SEGURIDAD CIUDADANA
-              </span>
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-blue-300 border border-blue-500/40">
-                MAPAS SIG & LEAFLET
-              </span>
-            </div>
-
-            <div class="absolute bottom-4 right-4">
-              <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-blue-400 text-white hover:text-blue-400 transition-all flex items-center justify-center">
-                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
-                <i data-lucide="server" class="w-3.5 h-3.5"></i> IT Help Desk & Plataforma de Seguridad
-              </div>
-              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                Sistema de Gestión de Incidencias y Mesa de Ayuda
-              </h3>
-              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-                Plataforma web para las 4 centrales de monitoreo distrital. Reemplazó formatos manuales mediante georreferenciación con Leaflet, módulo móvil con GPS para patrullas en campo, auditoría según Ley 29733 y emisión automatizada de informes oficiales CODISEC.
-              </p>
-            </div>
-
-            <div>
-              <div class="flex flex-wrap gap-2 mt-6 mb-6">
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-blue-400 text-xs font-mono">Node.js / Express</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Leaflet & Heatmaps</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Móvil GPS Evidencias</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Informes CODISEC</span>
+            <div class="relative h-64 sm:h-72 bg-black overflow-hidden cursor-pointer" onclick="openLightbox('assets/inei34_portal_v2.png?v=20261117_luxury_1', 'INEI 34 Smart Core: Portal e Intranet Institucional', 'Python · Flask · SQLite · Arquitectura 3 Roles · Matrícula Digital')">
+              <img src="assets/inei34_portal_v2.png?v=20261117_luxury_1" alt="INEI 34 Portal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#070c18] via-transparent to-transparent"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500 text-black flex items-center gap-1 shadow-md">
+                  <i data-lucide="building" class="w-3.5 h-3.5 fill-black"></i> PLATAFORMA EDUCATIVA
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-cyan-300 border border-cyan-500/40">
+                  PRODUCCIÓN 2026
+                </span>
               </div>
 
-              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-                <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-blue-400 transition-colors">
-                  <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+              <!-- Zoom hint -->
+              <div class="absolute bottom-4 left-4 z-10 px-3 py-1.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-2 group-hover:border-cyan-400/60 transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-cyan-400"></i>
+                <span>Ver Portal HD</span>
+              </div>
+
+              <div class="absolute top-4 right-4 z-10">
+                <a href="https://github.com/kira168/inei34-smart-core" target="_blank" onclick="event.stopPropagation(); playSfx('click')" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-cyan-400 text-white hover:text-cyan-400 transition-all flex items-center justify-center">
+                  <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
                 </a>
-                <span class="text-blue-400 font-bold">100% OPERATIVO</span>
               </div>
             </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
+                  <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> Institución Educativa INEI Nº 34 Chancay
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                  INEI 34 Smart Core: Portal e Intranet Institucional
+                </h3>
+                <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                  Ecosistema web completo para la digitalización escolar. Diseñé la experiencia de usuario (UX) centrada en 3 roles independientes (Alumnos, Docentes, Directores), implementando trámites virtuales, registro de notas, asistencia, gamificación escolar y control disciplinario.
+                </p>
+              </div>
+
+              <div class="mt-6">
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-cyan-300 text-xs font-mono">Python / Flask</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">SQLite & Cloudflare</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">3 Roles UX</span>
+                </div>
+
+                <div class="pt-4 border-t border-[#16223b] flex items-center justify-between">
+                  <a href="https://github.com/kira168/inei34-smart-core" target="_blank" onclick="playSfx('click')" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-cyan-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                  </a>
+                  <span class="text-xs font-mono text-cyan-400 font-bold">100% OPERATIVO</span>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
-        <!-- PROYECTO 5: SMARTCITY C4 -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col md:flex-row items-stretch justify-between md:col-span-2 group transition-all duration-500 hover:border-emerald-400/60" data-category="web ia">
-          
-          <div class="md:w-1/2 relative min-h-[260px] md:min-h-full overflow-hidden bg-black">
-            <img src="assets/smartcity_c4_monitoreo.png?v=20261117_1" alt="SmartCity C4 Platform" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent via-transparent to-[#0a0e17]"></div>
+        <!-- ========================================== -->
+        <!-- PROYECTO 4: SISTEMA DE GESTION DE INCIDENCIAS -->
+        <!-- ========================================== -->
+        <div class="project-item card-3d-wrap" data-category="fullstack">
+          <div class="card-3d spotlight-card rounded-3xl bg-[#070c18] border border-[#182645] hover:border-blue-400/70 overflow-hidden flex flex-col group transition-all duration-500 shadow-2xl h-full justify-between">
             
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500 text-black flex items-center gap-1 shadow-md">
-                <i data-lucide="cpu" class="w-3 h-3"></i> FASTAPI & AGENTE IA
-              </span>
-              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40">
-                CENTRO C4
-              </span>
-            </div>
-          </div>
-
-          <div class="md:w-1/2 p-8 sm:p-10 flex flex-col justify-between">
-            <div>
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-3">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> TELEMETRÍA URBANA & VIDEOVIGILANCIA
+            <div class="relative h-64 sm:h-72 bg-black overflow-hidden cursor-pointer" onclick="openLightbox('assets/incidencias_puentepiedra_v2.jpg?v=20261117_luxury_1', 'Sistema de Gestión de Incidencias: Seguridad Ciudadana Puente Piedra', 'PHP · MySQL · Leaflet GIS · Mapa del Delito · 568 Serenos en Ruta · Informes CODISEC')">
+              <img src="assets/incidencias_puentepiedra_v2.jpg?v=20261117_luxury_1" alt="Tablero de Control de Seguridad Ciudadana" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#070c18] via-transparent to-transparent"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-600 text-white flex items-center gap-1 shadow-md">
+                  <i data-lucide="shield" class="w-3.5 h-3.5"></i> SEGURIDAD CIUDADANA
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-blue-300 border border-blue-500/40">
+                  MAPAS GIS & LEAFLET
+                </span>
               </div>
-              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                SmartCity C4: Videovigilancia y Gestión Urbana Inteligente
-              </h3>
-              <p class="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
-                Plataforma de alta tecnología para el monitoreo y control de operatividad de 754 cámaras de videovigilancia. Integra mapas GeoJSON, análisis de fallas técnicas en tiempo real, gestión de turnos del personal y un <strong>Agente de Inteligencia Artificial</strong> para predicción analítica de incidencias.
-              </p>
-              <div class="flex flex-wrap gap-2 mt-5">
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-emerald-300 text-xs font-mono">Python / FastAPI</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Agente de IA</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Mapas GeoJSON</span>
-                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Telemetría 754 Cámaras</span>
+
+              <!-- Zoom hint -->
+              <div class="absolute bottom-4 left-4 z-10 px-3 py-1.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-2 group-hover:border-blue-400/60 transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-blue-400"></i>
+                <span>Ver Tablero de Control HD</span>
+              </div>
+
+              <div class="absolute top-4 right-4 z-10">
+                <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" onclick="event.stopPropagation(); playSfx('click')" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-blue-400 text-white hover:text-blue-400 transition-all flex items-center justify-center">
+                  <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                </a>
               </div>
             </div>
 
-            <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between">
-              <a href="https://github.com/kira168/smartcity-c4-platform" 
-                 target="_blank" 
-                 class="px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
-                <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
-              </a>
-              <span class="text-xs font-mono text-emerald-400 font-bold">C4 OPERATIVO</span>
-            </div>
-          </div>
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> IT Help Desk & Plataforma de Seguridad Distrital
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  Sistema de Gestión de Incidencias y Mesa de Ayuda
+                </h3>
+                <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                  Plataforma web para las 4 centrales de monitoreo de Puente Piedra (población atendida: 416,531 hab.). Digitalizó la captura de incidentes, mapas del delito con Leaflet, gestión de serenos móviles con GPS en campo y generación automatizada de informes oficiales para CODISEC y PNP.
+                </p>
+              </div>
 
+              <div class="mt-6">
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-blue-300 text-xs font-mono">PHP & MySQL</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Leaflet & Heatmaps</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Sereno Móvil GPS</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Informes CODISEC</span>
+                </div>
+
+                <div class="pt-4 border-t border-[#16223b] flex items-center justify-between">
+                  <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" onclick="playSfx('click')" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-blue-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                  </a>
+                  <span class="text-xs font-mono text-blue-400 font-bold">EN PRODUCCIÓN</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PROYECTO 5: TURISMO INKAIKO                 -->
+        <!-- ========================================== -->
+        <div class="project-item card-3d-wrap" data-category="fullstack">
+          <div class="card-3d spotlight-card rounded-3xl bg-[#070c18] border border-[#182645] hover:border-amber-400/70 overflow-hidden flex flex-col group transition-all duration-500 shadow-2xl h-full justify-between">
+            
+            <div class="relative h-64 sm:h-72 bg-black overflow-hidden cursor-pointer" onclick="openLightbox('assets/turismo_oficial_inkaiko_v2.jpg?v=20261117_luxury_1', 'Plataforma Web de Turismo & Experiencias (Turismo Inkaiko)', 'PHP 8.2 · Pasarela Stripe · Chatbot Inteligente · Reservas de Tours y Paquetes')">
+              <img src="assets/turismo_oficial_inkaiko_v2.jpg?v=20261117_luxury_1" alt="Turismo Inkaiko Oficial" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#070c18] via-transparent to-transparent"></div>
+              
+              <div class="absolute top-4 left-4 flex gap-2 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500 text-black flex items-center gap-1 shadow-md">
+                  <i data-lucide="compass" class="w-3.5 h-3.5 fill-black"></i> WEB & E-COMMERCE
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-amber-300 border border-amber-500/40">
+                  TURISMO INKAIKO
+                </span>
+              </div>
+
+              <!-- Zoom hint -->
+              <div class="absolute bottom-4 left-4 z-10 px-3 py-1.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-white text-xs font-mono flex items-center gap-2 group-hover:border-amber-400/60 transition-colors">
+                <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i>
+                <span>Ver Interfaz Turismo HD</span>
+              </div>
+
+              <div class="absolute top-4 right-4 z-10">
+                <a href="https://github.com/kira168/web-turismo" target="_blank" onclick="event.stopPropagation(); playSfx('click')" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-amber-400 text-white hover:text-amber-400 transition-all flex items-center justify-center">
+                  <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
+                  <i data-lucide="globe" class="w-3.5 h-3.5"></i> Portal Turístico, Reservas & Chatbot
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                  Plataforma Web de Turismo & Experiencias
+                </h3>
+                <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                  Aplicación web comercial para la promoción y reserva de itinerarios exclusivos y paquetes en el Perú. Incorpora catálogo multimedia, pasarela segura de cobros con Stripe, chatbot de asistencia en tiempo real y panel de analítica para operadores turísticos.
+                </p>
+              </div>
+
+              <div class="mt-6">
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-amber-300 text-xs font-mono">PHP 8.2 Full-Stack</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Stripe Webhooks</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Chatbot Asistente</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-[#0e172a] border border-[#1d2d4e] text-zinc-300 text-xs font-mono">Diseño UX/UI</span>
+                </div>
+
+                <div class="pt-4 border-t border-[#16223b] flex items-center justify-between">
+                  <a href="https://github.com/kira168/web-turismo" target="_blank" onclick="playSfx('click')" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-amber-400 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                  </a>
+                  <span class="text-xs font-mono text-amber-400 font-bold">PORTAL COMPLETO</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
 
       </div>
+
     </section>
 
-    <!-- ================= STACK TECNOLÓGICO SECTION ================= -->
-    <section id="habilidades" class="py-16">
+    <!-- ========================================== -->
+    <!-- INTERACTIVE CYBER TERMINAL (CÉSAR OS)      -->
+    <!-- ========================================== -->
+    <section id="terminal" class="py-16">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-purple-500/30 bg-purple-950/30 text-purple-300 font-mono text-xs tracking-wider mb-3">
-          <i data-lucide="cpu" class="w-4 h-4 text-purple-400"></i>
-          <span>02 // ARSENAL TECNOLÓGICO</span>
+      <div class="max-w-4xl mx-auto rounded-3xl bg-[#050813] border border-[#1c2a47] shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+        
+        <!-- Terminal Titlebar -->
+        <div class="px-5 py-3.5 bg-[#090e1c] border-b border-[#1c2a47] flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+            <span class="ml-2 font-mono text-xs text-zinc-400">cesar@tinedo-arch-linux: ~ (César OS v2.6)</span>
+          </div>
+          <div class="text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+            <span>INTERACTIVE CLI</span>
+          </div>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight">
-          Habilidades de Alto Rendimiento
+
+        <!-- Terminal Quick Action Chips -->
+        <div class="px-5 py-2.5 bg-[#070b17] border-b border-[#141e33] flex flex-wrap gap-2 text-xs font-mono">
+          <span class="text-zinc-500 self-center">Comandos rápidos:</span>
+          <button onclick="runCommand('projects')" class="px-2.5 py-1 rounded-lg bg-[#0e172a] hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all">projects</button>
+          <button onclick="runCommand('skills')" class="px-2.5 py-1 rounded-lg bg-[#0e172a] hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 transition-all">skills</button>
+          <button onclick="runCommand('cajathon')" class="px-2.5 py-1 rounded-lg bg-[#0e172a] hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-all">cajathon</button>
+          <button onclick="runCommand('contact')" class="px-2.5 py-1 rounded-lg bg-[#0e172a] hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-all">contact</button>
+          <button onclick="runCommand('clear')" class="px-2.5 py-1 rounded-lg bg-[#0e172a] hover:bg-red-500/20 text-zinc-400 border border-zinc-700 transition-all">clear</button>
+        </div>
+
+        <!-- Terminal Output Area -->
+        <div id="terminalBody" class="p-6 font-mono text-xs sm:text-sm text-zinc-300 min-h-[220px] max-h-[360px] overflow-y-auto space-y-2 leading-relaxed">
+          <div class="text-zinc-500">// Terminal interactiva de César Tinedo. Escribe un comando o haz clic en los botones de arriba.</div>
+          <div class="text-cyan-400">> Bienvenido a César OS. Inicializando subsistemas de desarrollo... [OK]</div>
+          <div class="text-emerald-400">> Repositorios públicos vinculados: smartcity-c4-platform, inei34-smart-core, gestionar-incidencias, web-turismo.</div>
+        </div>
+
+        <!-- Terminal Input Line -->
+        <div class="px-6 py-3.5 bg-[#070b17] border-t border-[#141e33] flex items-center gap-2">
+          <span class="font-mono text-cyan-400 font-bold">$</span>
+          <input type="text" id="terminalInput" placeholder="Escribe un comando (ej: help, projects, skills, contact)..." class="w-full bg-transparent font-mono text-xs sm:text-sm text-white focus:outline-none placeholder:text-zinc-600" autocomplete="off" onkeydown="handleTerminalKey(event)">
+          <button onclick="executeTerminalInput()" class="px-3 py-1 rounded-lg bg-cyan-500 text-black font-mono text-xs font-bold hover:bg-cyan-400 transition-colors">EJECUTAR</button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SKILLS & ARSENAL MATRIX                    -->
+    <!-- ========================================== -->
+    <section id="habilidades" class="py-20">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs tracking-wider mb-2">
+          <span>// COMPETENCIAS TÉCNICAS Y DOMINIO DE ARQUITECTURA</span>
+        </div>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl text-white">
+          ARSENAL & <span class="holo-gradient">TECNOLOGÍAS</span>
         </h2>
-        <p class="text-zinc-400 text-base mt-2">
-          La combinación ideal para empresas que buscan innovación real: Diseño UX centrado en personas, solidez técnica y la última frontera en Inteligencia Artificial.
+        <p class="text-zinc-400 text-sm mt-3">
+          Herramientas y metodologías aplicadas en proyectos en producción de alto tráfico y procesamiento analítico.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <!-- CARD 1: IA & CHATBOTS -->
-        <div class="spotlight-card rounded-3xl border border-zinc-800 p-8 flex flex-col justify-between hover:border-purple-400/50 transition-all duration-300">
+        <!-- Card 1: Backend & APIs -->
+        <div class="p-7 rounded-3xl bg-[#070c18] border border-[#16223b] hover:border-cyan-400/60 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6">
-              <i data-lucide="bot" class="w-7 h-7"></i>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="server" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-white mb-2">IA, Agentes & Chatbots</h3>
-            <p class="text-zinc-400 text-xs font-mono mb-6">[SISTEMAS AUTÓNOMOS & CONVERSACIONALES]</p>
-            
-            <ul class="space-y-3.5 text-sm">
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>RAG Architecture:</strong> Búsqueda semántica sobre documentos y bases de conocimiento vectoriales.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>WhatsApp Chatbots:</strong> Integración de Webhooks y APIs con flujos automatizados 24/7.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Orquestación Multi-Agente:</strong> Diseño de agentes con roles complementarios y toma de decisiones.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Prompt Engineering Avanzado:</strong> Inferencia estructurada, JSON mode y control de alucinaciones.</span>
-              </li>
-            </ul>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-cyan-400 transition-colors">Backend & APIs</h3>
+            <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+              Microservicios, APIs REST asíncronas y WebSockets de baja latencia.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-cyan-300 text-[11px] font-mono">FastAPI</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Flask</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">PHP 8.2</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">JWT & Auth</span>
+            </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-zinc-800/80 font-mono text-xs text-purple-300 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-purple-400"></span> Nivel de implementación: Avanzado
+          <div class="mt-6 pt-4 border-t border-[#131d33] flex justify-between items-center text-xs font-mono text-zinc-500">
+            <span>DISPONIBILIDAD</span>
+            <span class="text-cyan-400 font-bold">ALTA ESCALABILIDAD</span>
           </div>
         </div>
 
-        <!-- CARD 2: DISEÑO UX/UI -->
-        <div class="spotlight-card rounded-3xl border border-zinc-800 p-8 flex flex-col justify-between hover:border-cyan-400/50 transition-all duration-300">
+        <!-- Card 2: AI & RAG -->
+        <div class="p-7 rounded-3xl bg-[#070c18] border border-[#16223b] hover:border-purple-400/60 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6">
-              <i data-lucide="palette" class="w-7 h-7"></i>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="brain-circuit" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-white mb-2">Diseño UX / UI</h3>
-            <p class="text-zinc-400 text-xs font-mono mb-6">[EXPERIENCIA VISUAL & HUMAN CENTRIC]</p>
-            
-            <ul class="space-y-3.5 text-sm">
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Figma Avanzado:</strong> Wireframing, prototipado interactivo de alta fidelidad y micro-animaciones.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Design Systems:</strong> Tokens de diseño, librerías de componentes consistentes y escalables.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>UX Research:</strong> Mapeo de journeys de usuario, análisis de fricción y pruebas de usabilidad.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Mobile-First & Accesibilidad:</strong> Diseños perfectamente adaptados a cualquier pantalla.</span>
-              </li>
-            </ul>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">IA & RAG</h3>
+            <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+              Agentes autónomos, embeddings vectoriales y LLMs locales para analítica.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-purple-300 text-[11px] font-mono">Ollama Local</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Qwen 2.5</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Hermes 3</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-purple-300 text-[11px] font-mono">RAG Vectorial</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Prompt Eng</span>
+            </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-zinc-800/80 font-mono text-xs text-cyan-300 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Enfoque: Usabilidad & Conversión
+          <div class="mt-6 pt-4 border-t border-[#131d33] flex justify-between items-center text-xs font-mono text-zinc-500">
+            <span>INFERENCIA</span>
+            <span class="text-purple-400 font-bold">ZERO LEAKAGE</span>
           </div>
         </div>
 
-        <!-- CARD 3: DESARROLLO WEB & INGENIERÍA -->
-        <div class="spotlight-card rounded-3xl border border-zinc-800 p-8 flex flex-col justify-between hover:border-emerald-400/50 transition-all duration-300">
+        <!-- Card 3: Frontend & UX/UI -->
+        <div class="p-7 rounded-3xl bg-[#070c18] border border-[#16223b] hover:border-emerald-400/60 transition-all flex flex-col justify-between group">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
-              <i data-lucide="terminal" class="w-7 h-7"></i>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="palette" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-white mb-2">Desarrollo Web & Backend</h3>
-            <p class="text-zinc-400 text-xs font-mono mb-6">[SOFTWARE ROBUSTO & DESPLIEGUE]</p>
-            
-            <ul class="space-y-3.5 text-sm">
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Frontend Moderno:</strong> HTML5 semántico, Modern CSS, Tailwind CSS, JavaScript modular.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Python Backend:</strong> Frameworks ágiles (Flask, FastAPI), creación y consumo de REST APIs.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>Bases de Datos & Auth:</strong> SQLite, PostgreSQL, esquemas relacionales y sesiones seguras.</span>
-              </li>
-              <li class="flex items-start gap-3 text-zinc-300">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
-                <span><strong>DevOps & Control:</strong> Git, GitHub, despliegues con Cloudflare Tunnel y servidores Linux.</span>
-              </li>
-            </ul>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-emerald-400 transition-colors">Frontend & UX/UI</h3>
+            <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+              Interfaces modernas, micro-interacciones, diseño responsivo y sistemas de diseño.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-emerald-300 text-[11px] font-mono">Tailwind CSS</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">JavaScript ES6+</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Leaflet GIS</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-emerald-300 text-[11px] font-mono">Figma Design</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Glassmorphism</span>
+            </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-zinc-800/80 font-mono text-xs text-emerald-300 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Estándares: Código Limpio
+          <div class="mt-6 pt-4 border-t border-[#131d33] flex justify-between items-center text-xs font-mono text-zinc-500">
+            <span>EXPERIENCIA</span>
+            <span class="text-emerald-400 font-bold">PIXEL PERFECT</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Databases & GIS -->
+        <div class="p-7 rounded-3xl bg-[#070c18] border border-[#16223b] hover:border-amber-400/60 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-5 group-hover:scale-110 transition-transform">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-amber-400 transition-colors">Bases de Datos & DevOps</h3>
+            <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+              Persistencia optimizada, indexación espacial, control de versiones y despliegue.
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-amber-300 text-[11px] font-mono">PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">MySQL</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">SQLite</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-amber-300 text-[11px] font-mono">Git / GitHub</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#0d1629] text-zinc-300 text-[11px] font-mono">Postman API</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#131d33] flex justify-between items-center text-xs font-mono text-zinc-500">
+            <span>INFRAESTRUCTURA</span>
+            <span class="text-amber-400 font-bold">OPTIMIZADA</span>
           </div>
         </div>
 
       </div>
+
     </section>
 
-    <!-- ================= SOBRE MÍ & TRAYECTORIA ================= -->
-    <section id="sobre-mi" class="py-16">
-      <div class="spotlight-card rounded-3xl border border-zinc-800 p-8 sm:p-14 relative overflow-hidden">
+    <!-- ========================================== -->
+    <!-- ABOUT ME & CAJATHON HACKATHON PROFILE      -->
+    <!-- ========================================== -->
+    <section id="sobre-mi" class="py-20">
+      
+      <div class="rounded-3xl bg-[#070c18] border border-[#16223b] p-8 sm:p-12 relative overflow-hidden">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-cyan-500/10 blur-[90px] pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
           
-          <!-- Avatar & Holographic Frame -->
-          <div class="lg:col-span-5 flex flex-col items-center text-center">
-            <div class="relative group">
-              <div class="w-52 h-52 sm:w-60 sm:h-60 rounded-3xl overflow-hidden border-2 border-cyan-400/50 p-1 bg-black/60 shadow-2xl shadow-cyan-500/20 group-hover:border-cyan-300 transition-all duration-500">
-                <img src="https://github.com/kira168.png" alt="César Gian Pier Tinedo Jiménez" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500">
-              </div>
-              <div class="absolute -bottom-3 -right-3 px-3 py-1.5 rounded-xl bg-black border border-cyan-400 text-cyan-300 font-mono text-xs font-bold shadow-lg">
-                [AI_READY]
-              </div>
+          <div class="lg:col-span-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/10 text-cyan-400 font-mono text-xs mb-4 border border-cyan-500/20">
+              <i data-lucide="user-check" class="w-3.5 h-3.5"></i> PERFIL PROFESIONAL
             </div>
-
-            <h3 class="font-heading text-2xl font-bold text-white mt-6">César Gian Pier Tinedo</h3>
-            <p class="font-mono text-xs text-cyan-400 mt-1">Ingeniería de Sistemas • UCV</p>
-            <div class="flex items-center gap-2 text-xs font-mono text-zinc-400 mt-2">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-400"></i> Lima, Perú • Disponible Remoto / Híbrido
-            </div>
-          </div>
-
-          <!-- Narrative description -->
-          <div class="lg:col-span-7 space-y-5 text-zinc-300 leading-relaxed font-sans text-sm sm:text-base">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-mono text-xs">
-              <i data-lucide="user-check" class="w-3.5 h-3.5"></i> BIO & MANIFIESTO PROFESIONAL
-            </div>
-
-            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white leading-tight">
-              Diseño con empatía humana, construyo con rigor de ingeniería.
+            <h2 class="font-heading font-black text-3xl sm:text-4xl text-white mb-4">
+              César Gian Pier Tinedo Jiménez
             </h2>
-
-            <p>
-              Soy estudiante de <strong class="text-white">Ingeniería de Sistemas en la Universidad César Vallejo (UCV)</strong>. Mi pasión nace en la intersección de dos mundos que rara vez se encuentran: la estética y claridad del <strong class="text-cyan-400">Diseño UX/UI</strong> y la precisión lógica del <strong class="text-cyan-400">Desarrollo de Software</strong>.
-            </p>
-
-            <p>
-              En la actualidad, ninguna solución está completa sin la aceleración de la <strong class="text-purple-400">Inteligencia Artificial</strong>. He desarrollado motores de búsqueda semántica (RAG), chatbots de mensajería para atención masiva y herramientas de automatización que multiplican la productividad de equipos.
-            </p>
-
-            <p>
-              Busco integrarme a equipos de tecnología, startups o empresas donde pueda aportar tanto en la ideación y prototipado visual de productos como en su desarrollo e integración tecnológica.
-            </p>
-
-            <div class="pt-4 flex flex-wrap gap-4">
-              <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20revis%C3%A9%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n" 
-                 target="_blank" 
-                 class="px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-cyan-500 hover:bg-cyan-400 text-black transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/20 hover:scale-105 active:scale-95">
-                <i data-lucide="phone" class="w-4 h-4 fill-black"></i> AGENDAR CHARLA DIRECTA
-              </a>
-
-              <a href="mailto:nuvk168@gmail.com" 
-                 class="px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-zinc-900 border border-zinc-700 hover:border-white text-white transition-all flex items-center gap-2 hover:scale-105 active:scale-95">
-                <i data-lucide="mail" class="w-4 h-4"></i> ENVIAR EMAIL DIRECTO
-              </a>
+            <div class="text-zinc-300 text-sm sm:text-base space-y-4 leading-relaxed">
+              <p>
+                Estudiante avanzado de <strong class="text-white">Ingeniería de Sistemas</strong> en la <strong class="text-white">Universidad César Vallejo (UCV - Sede Lima Norte)</strong>. Me caracterizo por un enfoque pragmático orientado a resolver problemas reales de negocio y del sector público mediante software de vanguardia.
+              </p>
+              <p>
+                He liderado la arquitectura técnica de plataformas de alta exigencia, desde la <span class="text-cyan-400">telemetría urbana de 754 cámaras de videovigilancia</span> para la Municipalidad de Puente Piedra, hasta el diseño y despliegue del <span class="text-purple-400">ecosistema digital y multi-agente RAG pedagógico de la I.E. INEI Nº 34</span>.
+              </p>
+              <p>
+                Participante y contendiente de la <strong class="text-emerald-400">Cajathon 2026</strong> (Caja Trujillo & UPAO), enfocado en aplicar Inteligencia Artificial generativa, automatización de procesos y arquitecturas limpias para generar inclusión financiera y modernización digital.
+              </p>
             </div>
+
+            <!-- Credentials checklist -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+              <div class="flex items-center gap-2.5 text-xs font-mono text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Disponibilidad inmediata para proyectos</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs font-mono text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Experiencia demostrable con código en GitHub</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs font-mono text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Dominio de Git, GitHub, APIs y microservicios</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs font-mono text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Enfoque en Clean Architecture & UX/UI</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Contact Card inside profile -->
+          <div class="lg:col-span-4 bg-[#050813] border border-[#1b2742] rounded-2xl p-6 flex flex-col gap-4 text-center">
+            <div class="w-20 h-20 rounded-full mx-auto p-1 bg-gradient-to-tr from-cyan-400 to-purple-600 shadow-[0_0_25px_rgba(0,240,255,0.3)]">
+              <img src="https://github.com/kira168.png" alt="César Tinedo" class="w-full h-full rounded-full object-cover">
+            </div>
+            <div>
+              <div class="font-heading font-extrabold text-lg text-white">César Tinedo</div>
+              <div class="text-xs font-mono text-cyan-400">@kira168 · Lima, Perú</div>
+            </div>
+
+            <div class="pt-4 border-t border-[#16223b] space-y-2 text-xs font-mono">
+              <div class="flex items-center justify-between text-zinc-400">
+                <span>WhatsApp:</span>
+                <a href="https://wa.me/51974274864" target="_blank" class="text-emerald-400 hover:underline">+51 974 274 864</a>
+              </div>
+              <div class="flex items-center justify-between text-zinc-400">
+                <span>Email:</span>
+                <span class="text-white">nuvk168@gmail.com</span>
+              </div>
+              <div class="flex items-center justify-between text-zinc-400">
+                <span>Universidad:</span>
+                <span class="text-zinc-300">UCV Lima Norte</span>
+              </div>
+            </div>
+
+            <button onclick="copyEmailToClipboard()" class="mt-2 w-full py-2.5 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span id="copyBtnText">COPIAR CORREO</span>
+            </button>
           </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- ================= CTA FINAL / CONTACTO ================= -->
-    <section id="contacto" class="py-16 text-center">
-      <div class="spotlight-card rounded-3xl border border-cyan-500/30 p-8 sm:p-16 relative overflow-hidden max-w-4xl mx-auto shadow-2xl shadow-cyan-500/10">
-        
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs mb-6">
+    <!-- ========================================== -->
+    <!-- CONTACT SECTION                            -->
+    <!-- ========================================== -->
+    <section id="contacto" class="py-20 text-center">
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs tracking-wider mb-3">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>RESPUESTA RÁPIDA GARANTIZADA</span>
+          <span>// COMUNICACIÓN DIRECTA & CONTRATACIONES</span>
         </div>
-
-        <h2 class="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight mb-4 leading-tight">
-          ¿Listo para construir el siguiente gran producto digital?
+        <h2 class="font-heading font-black text-3xl sm:text-5xl text-white mb-6">
+          ¿TIENES UN PROYECTO O <span class="holo-gradient">VACANTE?</span>
         </h2>
-        <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10">
-          Escríbeme para conversar sobre prácticas profesionales, vacantes en desarrollo/UX, o proyectos independientes de alto impacto.
+        <p class="text-zinc-400 text-base leading-relaxed mb-10 max-w-xl mx-auto">
+          Estoy disponible para integrarme a equipos de tecnología de alto rendimiento, hackathons o consultoría en desarrollo de software y soluciones con IA.
         </p>
 
-        <!-- 3 Contact Channels -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-left">
-          
-          <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20vi%20tu%20portafolio%20y%20quiero%20conversar%20contigo" target="_blank" class="p-5 rounded-2xl bg-black/60 border border-zinc-800 hover:border-emerald-400 transition-all group">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <i data-lucide="message-circle" class="w-5 h-5"></i>
-            </div>
-            <div class="text-[11px] font-mono text-zinc-500">WHATSAPP DIRECTO</div>
-            <div class="text-sm font-mono font-bold text-white mt-0.5">+51 974 274 864</div>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/51974274864?text=Hola%20Cesar,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" onclick="playSfx('success')" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-500 text-black font-heading font-extrabold text-sm tracking-wider flex items-center gap-2 shadow-[0_0_30px_rgba(16,185,129,0.35)] hover:scale-105 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 fill-black"></i>
+            <span>ENVIAR MENSAJE A WHATSAPP</span>
           </a>
 
-          <a href="mailto:nuvk168@gmail.com" class="p-5 rounded-2xl bg-black/60 border border-zinc-800 hover:border-cyan-400 transition-all group">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <i data-lucide="mail" class="w-5 h-5"></i>
-            </div>
-            <div class="text-[11px] font-mono text-zinc-500">CORREO PERSONAL</div>
-            <div class="text-sm font-mono font-bold text-white mt-0.5 truncate">nuvk168@gmail.com</div>
+          <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" onclick="playSfx('click')" class="px-7 py-4 rounded-2xl bg-[#080d1a] border border-[#1b2b4d] hover:border-purple-400 text-white font-mono text-sm flex items-center gap-2 hover:scale-105 transition-all">
+            <i data-lucide="linkedin" class="w-4 h-4 text-purple-400"></i>
+            <span>LINKEDIN PERFIL</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" class="p-5 rounded-2xl bg-black/60 border border-zinc-800 hover:border-purple-400 transition-all group">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <i data-lucide="linkedin" class="w-5 h-5"></i>
-            </div>
-            <div class="text-[11px] font-mono text-zinc-500">LINKEDIN PROFILE</div>
-            <div class="text-sm font-mono font-bold text-white mt-0.5">César Gian Pier</div>
+          <a href="mailto:nuvk168@gmail.com" onclick="playSfx('click')" class="px-7 py-4 rounded-2xl bg-[#080d1a] border border-[#1b2b4d] hover:border-cyan-400 text-white font-mono text-sm flex items-center gap-2 hover:scale-105 transition-all">
+            <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>
+            <span>NUVK168@GMAIL.COM</span>
           </a>
-
         </div>
-
-        <!-- Big WhatsApp Button -->
-        <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad" 
-           target="_blank" 
-           class="inline-flex items-center gap-3 px-9 py-5 rounded-2xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 text-black font-mono text-base font-black shadow-2xl shadow-cyan-500/40 hover:scale-105 active:scale-95 transition-all">
-          <i data-lucide="send" class="w-5 h-5 fill-black"></i>
-          <span>ABRIR CONVERSACIÓN EN WHATSAPP</span>
-        </a>
-
       </div>
+
     </section>
 
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-zinc-900 bg-black py-10 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-zinc-500">
-      <div class="flex items-center gap-3">
-        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-        <span>© 2026 CÉSAR GIAN PIER TINEDO JIMÉNEZ // DISEÑADO Y PROGRAMADO CON VISIÓN FUTURISTA</span>
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="border-t border-[#121c30] bg-[#02050c] py-10 relative z-10 text-center font-mono text-xs text-zinc-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 César Gian Pier Tinedo Jiménez · <span class="text-zinc-400">kira168</span>. Hecho con pasión, código y precisión.
       </div>
-      <div class="flex items-center gap-6">
-        <a href="https://github.com/kira168" target="_blank" class="hover:text-cyan-400 transition-colors">GITHUB</a>
-        <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" class="hover:text-purple-400 transition-colors">LINKEDIN</a>
-        <a href="mailto:nuvk168@gmail.com" class="hover:text-pink-400 transition-colors">EMAIL</a>
-        <a href="https://wa.me/51974274864" target="_blank" class="hover:text-emerald-400 transition-colors">WHATSAPP</a>
+      <div class="flex items-center gap-6 text-zinc-400">
+        <a href="https://github.com/kira168" target="_blank" class="hover:text-cyan-400 transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" class="hover:text-purple-400 transition-colors">LinkedIn</a>
+        <a href="https://wa.me/51974274864" target="_blank" class="hover:text-emerald-400 transition-colors">WhatsApp</a>
+        <a href="#inicio" class="hover:text-cyan-400 transition-colors">↑ Volver Arriba</a>
       </div>
     </div>
   </footer>
 
-  <!-- ================= FLOATING HUD WHATSAPP DOCK ================= -->
-  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-    <a href="https://wa.me/51974274864?text=Hola%20C%C3%A9sar,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad" 
-       target="_blank" 
-       class="relative group p-4 rounded-2xl bg-black/90 border border-emerald-400 text-emerald-300 shadow-2xl shadow-emerald-500/30 backdrop-blur-xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center"
-       title="Escríbeme directamente a WhatsApp">
-      <i data-lucide="message-circle" class="w-7 h-7 text-emerald-400"></i>
-      
-      <!-- Hover label -->
-      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2.5 transition-all duration-300 font-mono text-xs font-bold text-white">
-        WhatsApp: +51 974 274 864
-      </span>
+  <!-- ========================================== -->
+  <!-- FULLSCREEN LIGHTBOX MODAL COMPONENT        -->
+  <!-- ========================================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden flex flex-col items-center justify-center p-4 sm:p-8 opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+    
+    <!-- Close button -->
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 p-3 rounded-full bg-zinc-900/80 border border-zinc-700 text-white hover:text-cyan-400 hover:border-cyan-400 transition-all z-50">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
 
-      <!-- Radar Pulse effect -->
-      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full animate-ping"></span>
-      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-black"></span>
-    </a>
+    <!-- Modal Content Box -->
+    <div class="relative max-w-6xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
+      <div class="w-full rounded-2xl overflow-hidden border border-cyan-500/40 shadow-[0_0_60px_rgba(0,240,255,0.25)] bg-[#040812]">
+        <img id="lightboxImg" src="" alt="Vista previa HD" class="w-full max-h-[75vh] object-contain mx-auto bg-black">
+      </div>
+
+      <div class="w-full mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 px-2">
+        <div>
+          <div id="lightboxTitle" class="font-heading font-extrabold text-lg sm:text-xl text-white">Título de Proyecto</div>
+          <div id="lightboxCaption" class="font-mono text-xs text-cyan-400 mt-0.5">Subtítulo técnico</div>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="closeLightbox()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-mono text-xs">Cerrar [ESC]</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ================= SCRIPTS: CANVAS, SPOTLIGHT & TERMINAL ================= -->
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT LOGIC & ANIMATIONS              -->
+  <!-- ========================================== -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // 1. NEURAL PARTICLE CANVAS BACKGROUND
-    const canvas = document.getElementById('neural-canvas');
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    // 1. Digital Clock for Lima, Peru
+    function updateLimaClock() {
+      const options = {
+        timeZone: 'America/Lima',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('es-PE', options);
+      const clockEl = document.getElementById('limaClock');
+      if (clockEl) {
+        clockEl.textContent = `${timeStr} (Lima, PE)`;
+      }
+    }
+    setInterval(updateLimaClock, 1000);
+    updateLimaClock();
 
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
+    // 2. Synthesized Web Audio API Sound Effects
+    let audioCtx = null;
+    let sfxEnabled = true;
 
-    const particles = [];
-    const particleCount = Math.min(Math.floor(window.innerWidth / 18), 70);
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7,
-        radius: Math.random() * 1.8 + 0.8,
-        color: Math.random() > 0.4 ? 'rgba(0, 240, 255, ' : 'rgba(168, 85, 247, '
+    function playSfx(type) {
+      if (!sfxEnabled) return;
+      try {
+        initAudio();
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const now = audioCtx.currentTime;
+
+        if (type === 'hover') {
+          // Soft sci-fi blip
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(650, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.04);
+          gain.gain.setValueAtTime(0.02, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'click') {
+          // Futuristic select chirp
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(440, now);
+          osc.frequency.exponentialRampToValueAtTime(1200, now + 0.08);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } else if (type === 'success') {
+          // Major chord sci-fi chime
+          [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.04);
+            gain.gain.setValueAtTime(0.04, now + idx * 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + 0.25);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + idx * 0.04);
+            osc.stop(now + idx * 0.04 + 0.25);
+          });
+        }
+      } catch (e) {
+        // AudioContext not allowed before gesture
+      }
+    }
+
+    function toggleAudioSfx() {
+      sfxEnabled = !sfxEnabled;
+      const sfxLabel = document.getElementById('sfxLabel');
+      const sfxIcon = document.getElementById('sfxIcon');
+      if (sfxEnabled) {
+        if (sfxLabel) sfxLabel.textContent = 'SFX: ON';
+        if (sfxIcon) sfxIcon.classList.replace('text-zinc-600', 'text-cyan-400');
+        playSfx('success');
+      } else {
+        if (sfxLabel) sfxLabel.textContent = 'SFX: OFF';
+        if (sfxIcon) sfxIcon.classList.replace('text-cyan-400', 'text-zinc-600');
+      }
+    }
+
+    // 3. Desktop Interactive Cursor
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    if (cursorDot && cursorRing) {
+      window.addEventListener('mousemove', (e) => {
+        cursorDot.style.left = `${e.clientX}px`;
+        cursorDot.style.top = `${e.clientY}px`;
+        cursorRing.animate({
+          left: `${e.clientX}px`,
+          top: `${e.clientY}px`
+        }, { duration: 250, fill: "forwards" });
+      });
+
+      // Expand on interactive elements
+      document.querySelectorAll('a, button, .card-3d, input').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursorRing.style.width = '55px';
+          cursorRing.style.height = '55px';
+          cursorRing.style.borderColor = '#00f0ff';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorRing.style.width = '34px';
+          cursorRing.style.height = '34px';
+          cursorRing.style.borderColor = 'rgba(0, 240, 255, 0.5)';
+        });
       });
     }
 
-    let mouse = { x: null, y: null };
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
+    // 4. Background Constellation Canvas
+    const canvas = document.getElementById('cyberCanvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const particleCount = 65;
+      let mouse = { x: null, y: null, maxDist: 140 };
 
-    function animateParticles() {
-      ctx.clearRect(0, 0, width, height);
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
 
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
 
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.45;
+          this.vy = (Math.random() - 0.5) * 0.45;
+          this.radius = Math.random() * 1.8 + 0.8;
+          this.color = Math.random() > 0.4 ? 'rgba(0, 240, 255, ' : 'rgba(168, 85, 247, ';
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
 
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + '0.7)';
-        ctx.fill();
-
-        // Connect with other particles
-        for (let j = i + 1; j < particles.length; j++) {
-          let p2 = particles[j];
-          let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 130) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            let alpha = (1 - dist / 130) * 0.18;
-            ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
+          // Mouse gentle repel
+          if (mouse.x !== null) {
+            let dx = this.x - mouse.x;
+            let dy = this.y - mouse.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.maxDist) {
+              let force = (mouse.maxDist - dist) / mouse.maxDist;
+              this.x += (dx / dist) * force * 1.5;
+              this.y += (dy / dist) * force * 1.5;
+            }
           }
         }
-
-        // Mouse attraction/repel
-        if (mouse.x !== null) {
-          let mDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-          if (mDist < 120) {
-            let angle = Math.atan2(p.y - mouse.y, p.x - mouse.x);
-            p.x += Math.cos(angle) * 1.2;
-            p.y += Math.sin(angle) * 1.2;
-          }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color + '0.7)';
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#00f0ff';
+          ctx.fill();
         }
       }
 
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
 
-    // 2. MOUSE SPOTLIGHT EFFECT ON CARDS
-    document.querySelectorAll('.spotlight-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Connect near particles
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // 5. 3D Card Perspective Tilt
+    document.querySelectorAll('.card-3d-wrap').forEach(wrap => {
+      const card = wrap.querySelector('.card-3d');
+      if (!card) return;
+
+      wrap.addEventListener('mousemove', (e) => {
+        const rect = wrap.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6; // max 6deg
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+        card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+      });
+
+      wrap.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
     });
 
-    // 3. TYPEWRITER DYNAMIC TEXT
-    const phrases = [
-      "Diseñador UX/UI de Alto Impacto",
-      "Arquitecto de Agentes Autónomos con IA",
-      "Desarrollador de Sistemas Web Full-Stack",
-      "Especialista en Chatbots & Arquitectura RAG",
-      "Ingeniero de Sistemas (UCV) // Perú"
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typewriterElement = document.getElementById('typewriter-text');
+    // 6. Fullscreen Lightbox Modal
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCaption = document.getElementById('lightboxCaption');
 
-    function typeWriter() {
-      const currentPhrase = phrases[phraseIndex];
-      if (isDeleting) {
-        typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let speed = isDeleting ? 30 : 65;
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        speed = 2200; // Pause at end
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        speed = 400;
-      }
-
-      setTimeout(typeWriter, speed);
+    function openLightbox(src, title, caption) {
+      playSfx('click');
+      lightboxImg.src = src;
+      lightboxTitle.textContent = title;
+      lightboxCaption.textContent = caption;
+      lightboxModal.classList.remove('hidden');
+      setTimeout(() => {
+        lightboxModal.classList.remove('opacity-0');
+      }, 10);
+      document.body.style.overflow = 'hidden';
     }
-    typeWriter();
 
-    // 4. INTERACTIVE TERMINAL SIMULATOR
-    function terminalEcho(cmd) {
-      const output = document.getElementById('terminal-output');
-      output.classList.remove('hidden');
+    function closeLightbox() {
+      playSfx('click');
+      lightboxModal.classList.add('opacity-0');
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
 
-      if (cmd === 'ineicore') {
-        output.innerHTML = `
-          <div class="text-cyan-400">&gt; querying [inei34-smart-core]...</div>
-          <div class="text-zinc-300">Stack: Python, Flask, Tailwind CSS, SQLite, Cloudflare Tunnel.<br>
-          Estado: Módulo de trámites, intranet educativa, control de notas y asistencia 100% operativo.</div>
-        `;
-      } else if (cmd === 'ai') {
-        output.innerHTML = `
-          <div class="text-purple-400">&gt; executing [rag-agent-diagnostic]...</div>
-          <div class="text-zinc-300">Vector Embeddings: Activos // Base de Conocimiento: Cargada.<br>
-          Smart Tutor & Smart Teacher en línea para asistencia pedagógica socrática.</div>
-        `;
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // 7. Interactive Terminal Logic
+    const terminalBody = document.getElementById('terminalBody');
+    const terminalInput = document.getElementById('terminalInput');
+
+    function appendTerminal(cmd, text, colorClass = 'text-zinc-300') {
+      const lineCmd = document.createElement('div');
+      lineCmd.className = 'text-cyan-400 font-bold';
+      lineCmd.textContent = `$ ${cmd}`;
+      terminalBody.appendChild(lineCmd);
+
+      const lineOut = document.createElement('div');
+      lineOut.className = `${colorClass} pl-3 border-l border-zinc-700 my-1`;
+      lineOut.innerHTML = text;
+      terminalBody.appendChild(lineOut);
+
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+      playSfx('hover');
+    }
+
+    function runCommand(cmd) {
+      cmd = cmd.toLowerCase().trim();
+      if (!cmd) return;
+
+      if (cmd === 'clear') {
+        terminalBody.innerHTML = '<div class="text-zinc-500">// Terminal limpia. Escribe un comando.</div>';
+        return;
+      }
+
+      if (cmd === 'help') {
+        appendTerminal('help', `
+          <strong class="text-white">COMANDOS DISPONIBLES:</strong><br>
+          • <span class="text-cyan-300">projects</span>: Ver los 5 repositorios públicos en GitHub.<br>
+          • <span class="text-purple-300">skills</span>: Lista de capacidades backend, IA y frontend.<br>
+          • <span class="text-emerald-300">cajathon</span>: Detalles del perfil para Cajathon 2026.<br>
+          • <span class="text-amber-300">contact</span>: Datos de contacto directo (WhatsApp, Email, LinkedIn).<br>
+          • <span class="text-zinc-400">whoami</span>: Resumen de carrera y universidad.<br>
+          • <span class="text-red-400">clear</span>: Limpiar pantalla de consola.
+        `);
+      } else if (cmd === 'projects') {
+        appendTerminal('projects', `
+          <strong class="text-cyan-400">REPOSITORIOS PÚBLICOS DE CÉSAR TINEDO (kira168):</strong><br>
+          1. <a href="https://github.com/kira168/smartcity-c4-platform" target="_blank" class="text-emerald-400 underline font-bold">smartcity-c4-platform</a>: Telemetría urbana de 754 cámaras y agente IA predictivo (FastAPI).<br>
+          2. <a href="https://github.com/kira168/inei34-smart-core" target="_blank" class="text-purple-400 underline font-bold">inei34-smart-core</a>: Smart Tutor & Smart Teacher Multi-Agente RAG con Ollama.<br>
+          3. <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="text-blue-400 underline font-bold">gestionar-incidencias</a>: Sistema de Seguridad y Leaflet GIS para Puente Piedra.<br>
+          4. <a href="https://github.com/kira168/web-turismo" target="_blank" class="text-amber-400 underline font-bold">web-turismo</a>: Plataforma de reservas turísticas con pasarela Stripe y chatbot.<br>
+          5. <a href="https://github.com/kira168/kira168.github.io" target="_blank" class="text-cyan-400 underline font-bold">kira168.github.io</a>: Código fuente de este portafolio futurista.
+        `);
+      } else if (cmd === 'skills') {
+        appendTerminal('skills', `
+          <strong class="text-white">ARSENAL TÉCNICO:</strong><br>
+          • <strong>Backend:</strong> Python (FastAPI, Flask), PHP 8.2, WebSockets, REST APIs.<br>
+          • <strong>IA & RAG:</strong> Ollama, Qwen 2.5, Hermes 3, LangChain, Embeddings vectoriales.<br>
+          • <strong>Frontend:</strong> Tailwind CSS, HTML5 semántico, JavaScript ES6+, Leaflet GIS.<br>
+          • <strong>Bases de Datos:</strong> PostgreSQL, MySQL, SQLite.<br>
+          • <strong>DevOps:</strong> Git / GitHub, Postman, Linux.
+        `);
+      } else if (cmd === 'cajathon') {
+        appendTerminal('cajathon', `
+          <strong class="text-emerald-400">CAJATHON 2026 (Caja Trujillo & UPAO):</strong><br>
+          • <strong>Postulante:</strong> César Gian Pier Tinedo Jiménez (kira168).<br>
+          • <strong>Especialidad:</strong> Arquitectura de Software, Agentes de IA, RAG y Microservicios.<br>
+          • <strong>Propuesta de Valor:</strong> Alta velocidad de prototipado a código de producción, interfaces intuitivas y soluciones basadas en datos.
+        `);
       } else if (cmd === 'contact') {
-        output.innerHTML = `
-          <div class="text-emerald-400">&gt; redirecting to WhatsApp gateway: +51 974 274 864...</div>
-          <div class="text-zinc-300">Haz clic en el botón inferior o <a href="https://wa.me/51974274864" target="_blank" class="underline text-emerald-400 font-bold">aquí para abrir WhatsApp directamente</a>.</div>
-        `;
+        appendTerminal('contact', `
+          <strong class="text-amber-400">MEDIOS DE CONTACTO OFICIALES:</strong><br>
+          • <strong>WhatsApp:</strong> <a href="https://wa.me/51974274864" target="_blank" class="text-emerald-400 underline">+51 974 274 864</a><br>
+          • <strong>Email:</strong> <a href="mailto:nuvk168@gmail.com" class="text-cyan-400 underline">nuvk168@gmail.com</a><br>
+          • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1" target="_blank" class="text-purple-400 underline">linkedin.com/in/cesar-gian-pier-tinedo-jimenez-5628362b1</a><br>
+          • <strong>GitHub:</strong> <a href="https://github.com/kira168" target="_blank" class="text-zinc-200 underline">github.com/kira168</a>
+        `);
+      } else if (cmd === 'whoami') {
+        appendTerminal('whoami', `
+          <strong>César Gian Pier Tinedo Jiménez</strong><br>
+          Estudiante de Ingeniería de Sistemas en Universidad César Vallejo (UCV - Lima Norte).<br>
+          Desarrollador enfocado en proyectos reales con impacto tangible en seguridad ciudadana, educación y comercio.
+        `);
+      } else {
+        appendTerminal(cmd, `Comando no reconocido: "${cmd}". Escribe <span class="text-cyan-400 font-bold">help</span> para ver la lista de comandos disponibles.`, 'text-red-400');
       }
     }
 
-    // 5. PROJECT FILTER FUNCTION
-    function filterProjects(category) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('active', 'bg-cyan-500', 'text-black', 'font-bold');
-        btn.classList.add('bg-zinc-900', 'text-zinc-400');
-      });
-      event.target.classList.add('active', 'bg-cyan-500', 'text-black', 'font-bold');
-      event.target.classList.remove('bg-zinc-900', 'text-zinc-400');
+    function handleTerminalKey(e) {
+      if (e.key === 'Enter') {
+        executeTerminalInput();
+      }
+    }
 
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        const categories = card.getAttribute('data-category');
-        if (category === 'all' || categories.includes(category)) {
-          card.style.display = 'flex';
+    function executeTerminalInput() {
+      const val = terminalInput.value;
+      if (!val) return;
+      runCommand(val);
+      terminalInput.value = '';
+    }
+
+    // 8. Filter Projects Category
+    function filterCategory(cat) {
+      playSfx('click');
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        if (b.getAttribute('data-cat') === cat) {
+          b.className = 'cat-btn px-3 py-1.5 rounded-xl font-mono text-xs bg-cyan-500 text-black font-bold transition-all';
         } else {
-          card.style.display = 'none';
+          b.className = 'cat-btn px-3 py-1.5 rounded-xl font-mono text-xs bg-[#091020] border border-[#1b2b4d] text-zinc-300 hover:text-cyan-400 transition-all';
+        }
+      });
+
+      document.querySelectorAll('.project-item').forEach(item => {
+        const itemCats = item.getAttribute('data-category') || '';
+        if (cat === 'all' || itemCats.includes(cat)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // 9. Copy Email to Clipboard with visual feedback
+    function copyEmailToClipboard() {
+      navigator.clipboard.writeText('nuvk168@gmail.com').then(() => {
+        playSfx('success');
+        const btnText = document.getElementById('copyBtnText');
+        if (btnText) {
+          const original = btnText.textContent;
+          btnText.textContent = '¡COPIADO CON ÉXITO!';
+          setTimeout(() => {
+            btnText.textContent = original;
+          }, 2500);
         }
       });
     }
