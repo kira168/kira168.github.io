@@ -524,100 +524,159 @@
         </div>
 
         <!-- PROYECTO 3: PLATAFORMA WEB DE TURISMO -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 p-7 sm:p-8 flex flex-col justify-between group transition-all duration-500 hover:border-amber-400/60 hover:-translate-y-1" data-category="web ux">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 shadow-xl shadow-amber-500/10 group-hover:scale-110 transition-transform">
-              <i data-lucide="compass" class="w-7 h-7"></i>
+        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-amber-400/60 hover:-translate-y-1" data-category="web ux">
+          
+          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
+            <img src="assets/turismo_preview.jpg" alt="Turismo Inkaiko" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500 text-black flex items-center gap-1 shadow-md">
+                <i data-lucide="compass" class="w-3 h-3"></i> WEB & E-COMMERCE
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-amber-300 border border-amber-500/40">
+                TURISMO INKAIKO
+              </span>
             </div>
-            <div class="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
-              <i data-lucide="globe" class="w-3.5 h-3.5"></i> Portal Web Turístico & Experiencias
+
+            <div class="absolute bottom-4 right-4">
+              <a href="https://github.com/kira168/web-turismo" target="_blank" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-amber-400 text-white hover:text-amber-400 transition-all flex items-center justify-center">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </a>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
-              Plataforma Web de Promoción y Turismo
-            </h3>
-            <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-              Sitio web interactivo enfocado en la promoción de destinos turísticos, gastronomía y circuitos culturales. Diseñado con una interfaz visual de alto impacto (UX/UI), navegación fluida, catálogo de atractivos y optimización responsiva para dispositivos móviles.
-            </p>
           </div>
 
-          <div>
-            <div class="flex flex-wrap gap-2 mt-6 mb-6">
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-400 text-xs font-mono">Diseño UX/UI</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">HTML5 / Modern CSS</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">JavaScript Interactivo</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Responsive Design</span>
+          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-mono text-amber-400 mb-2">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i> Portal Web Turístico, Reservas & Chatbot
+              </div>
+              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                Plataforma Web de Turismo & Experiencias
+              </h3>
+              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                Aplicación web integral para comercialización y reserva de tours y destinos nacionales. Cuenta con módulo cliente con pasarela de pagos Stripe, chatbot de asistencia, panel administrativo con analítica de reservas y diseño adaptado a móviles.
+              </p>
             </div>
 
-            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <a href="https://github.com/kira168/web-turismo" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-amber-400 transition-colors">
-                <i data-lucide="github" class="w-4 h-4"></i> REPOSITORIO GITHUB
-              </a>
-              <span class="text-amber-400 font-bold">PORTAL WEB</span>
+            <div>
+              <div class="flex flex-wrap gap-2 mt-6 mb-6">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-amber-400 text-xs font-mono">PHP & MySQL</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Stripe Webhooks</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Chatbot Asistente</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Diseño UX/UI</span>
+              </div>
+
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+                <a href="https://github.com/kira168/web-turismo" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-amber-400 transition-colors">
+                  <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                </a>
+                <span class="text-amber-400 font-bold">PORTAL COMPLETO</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- PROYECTO 4: SISTEMA DE GESTIÓN DE INCIDENCIAS IT -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 p-7 sm:p-8 flex flex-col justify-between group transition-all duration-500 hover:border-blue-400/60 hover:-translate-y-1" data-category="web ux">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 shadow-xl shadow-blue-500/10 group-hover:scale-110 transition-transform">
-              <i data-lucide="shield-alert" class="w-7 h-7"></i>
+        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col group transition-all duration-500 hover:border-blue-400/60 hover:-translate-y-1" data-category="web ux">
+          
+          <div class="relative h-64 sm:h-72 overflow-hidden bg-black">
+            <img src="assets/incidencias_preview.png" alt="Gestión de Incidencias" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e17] via-transparent to-transparent"></div>
+            
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-500 text-white flex items-center gap-1 shadow-md">
+                <i data-lucide="shield" class="w-3 h-3"></i> SEGURIDAD CIUDADANA
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-blue-300 border border-blue-500/40">
+                MAPAS SIG & LEAFLET
+              </span>
             </div>
-            <div class="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
-              <i data-lucide="server" class="w-3.5 h-3.5"></i> IT Help Desk & Service Management
+
+            <div class="absolute bottom-4 right-4">
+              <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="p-3 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-blue-400 text-white hover:text-blue-400 transition-all flex items-center justify-center">
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+              </a>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-              Sistema de Mesa de Ayuda y Gestión de Incidencias
-            </h3>
-            <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
-              Plataforma para gestión de tickets técnicos y mantenimiento de equipos. Diseñado con interfaz intuitiva de alta productividad: asignación de técnicos por prioridad, medición de tiempos de atención (SLA), métricas en tiempo real y registro histórico de fallas.
-            </p>
           </div>
 
-          <div>
-            <div class="flex flex-wrap gap-2 mt-6 mb-6">
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-blue-400 text-xs font-mono">Gestión de Tickets</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Dashboard SLA</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Roles & Seguridad</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">UX Operativo</span>
+          <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
+                <i data-lucide="server" class="w-3.5 h-3.5"></i> IT Help Desk & Plataforma de Seguridad
+              </div>
+              <h3 class="font-heading text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                Sistema de Gestión de Incidencias y Mesa de Ayuda
+              </h3>
+              <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                Plataforma web para las 4 centrales de monitoreo distrital. Reemplazó formatos manuales mediante georreferenciación con Leaflet, módulo móvil con GPS para patrullas en campo, auditoría según Ley 29733 y emisión automatizada de informes oficiales CODISEC.
+              </p>
             </div>
 
-            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-              <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-blue-400 transition-colors">
-                <i data-lucide="github" class="w-4 h-4"></i> REPOSITORIO GITHUB
-              </a>
-              <span class="text-blue-400 font-bold">HELP DESK</span>
+            <div>
+              <div class="flex flex-wrap gap-2 mt-6 mb-6">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-blue-400 text-xs font-mono">Node.js / Express</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Leaflet & Heatmaps</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Móvil GPS Evidencias</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Informes CODISEC</span>
+              </div>
+
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+                <a href="https://github.com/kira168/gestionar-incidencias" target="_blank" class="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-blue-400 transition-colors">
+                  <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+                </a>
+                <span class="text-blue-400 font-bold">100% OPERATIVO</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- PROYECTO 5: TESIS SMART CITY -->
-        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:col-span-2 group transition-all duration-500 hover:border-emerald-400/60" data-category="web ia">
-          <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-4">
-              <i data-lucide="cpu" class="w-3.5 h-3.5"></i> PROYECTO DE INVESTIGACIÓN & DESARROLLO TECNOLÓGICO
-            </div>
-            <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-              Tesis Smart City: Plataforma de Gestión y Monitoreo Urbano Inteligente
-            </h3>
-            <p class="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
-              Investigación y desarrollo de un ecosistema para ciudades inteligentes (Smart Cities). Integra monitoreo de variables urbanas, centralización de datos en tiempo real, tableros de control interactivos para toma de decisiones e indicadores para la optimización de servicios públicos.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-5">
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-emerald-300 text-xs font-mono">Smart City Architecture</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">IoT & Telemetría</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Dashboard Analítico</span>
-              <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Ingeniería de Sistemas (UCV)</span>
+        <!-- PROYECTO 5: SMARTCITY C4 -->
+        <div class="project-card spotlight-card rounded-3xl border border-zinc-800 overflow-hidden flex flex-col md:flex-row items-stretch justify-between md:col-span-2 group transition-all duration-500 hover:border-emerald-400/60" data-category="web ia">
+          
+          <div class="md:w-1/2 relative min-h-[260px] md:min-h-full overflow-hidden bg-black">
+            <img src="assets/smartcity_preview.png" alt="SmartCity C4 Platform" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent via-transparent to-[#0a0e17]"></div>
+            
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500 text-black flex items-center gap-1 shadow-md">
+                <i data-lucide="cpu" class="w-3 h-3"></i> FASTAPI & AGENTE IA
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-mono bg-black/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40">
+                CENTRO C4
+              </span>
             </div>
           </div>
 
-          <div class="flex-shrink-0 w-full md:w-auto">
-            <a href="https://github.com/kira168/smartcity-c4-platform" 
-               target="_blank" 
-               class="w-full md:w-auto px-6 py-4 rounded-xl font-mono text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
-              <i data-lucide="github" class="w-4 h-4"></i> REPOSITORIO GITHUB
-            </a>
+          <div class="md:w-1/2 p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-3">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> TELEMETRÍA URBANA & VIDEOVIGILANCIA
+              </div>
+              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                SmartCity C4: Videovigilancia y Gestión Urbana Inteligente
+              </h3>
+              <p class="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
+                Plataforma de alta tecnología para el monitoreo y control de operatividad de 754 cámaras de videovigilancia. Integra mapas GeoJSON, análisis de fallas técnicas en tiempo real, gestión de turnos del personal y un <strong>Agente de Inteligencia Artificial</strong> para predicción analítica de incidencias.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-5">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-emerald-300 text-xs font-mono">Python / FastAPI</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Agente de IA</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Mapas GeoJSON</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">Telemetría 754 Cámaras</span>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+              <a href="https://github.com/kira168/smartcity-c4-platform" 
+                 target="_blank" 
+                 class="px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-black transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
+                <i data-lucide="github" class="w-4 h-4"></i> VER REPOSITORIO GITHUB
+              </a>
+              <span class="text-xs font-mono text-emerald-400 font-bold">C4 OPERATIVO</span>
+            </div>
           </div>
+
         </div>
 
       </div>
