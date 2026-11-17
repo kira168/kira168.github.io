@@ -1,4 +1,4 @@
-# Portafolio Web Profesional - César Gian Pier Tinedo Jiménez
+# Portafolio Web Profesional - Cesar Gian Pier Tinedo Jimenez
 
 Bienvenido a tu portafolio web personal listo para producción y búsqueda de empleo.
 
